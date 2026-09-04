@@ -1,0 +1,8 @@
+torch
+transformers
+safetensors
+fastapi
+uvicorn
+cohere-melody==0.9.0
+ninja
+einops

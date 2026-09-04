@@ -1,0 +1,1615 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="593.694961pt" height="391.936875pt" viewBox="0 0 593.694961 391.936875" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-01T20:44:45.638350</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M -0 391.936875 
+L 593.694961 391.936875 
+L 593.694961 0 
+L -0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 57.019961 368.699844 
+L 586.494961 368.699844 
+L 586.494961 46.979844 
+L 57.019961 46.979844 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m476ac78f08" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m476ac78f08" x="118.144555" y="368.699844" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <!-- BS=1 -->
+      <g transform="translate(107.171235 382.777734) scale(0.0975 -0.0975)">
+       <defs>
+        <path id="Unica77Cohere-Regular-42" d="M 557 0 
+L 1875 0 
+C 2778 0 3840 154 3840 1280 
+C 3840 1933 3507 2240 2918 2374 
+L 2918 2387 
+C 3443 2528 3718 2970 3718 3424 
+C 3718 4589 2746 4646 1926 4646 
+L 557 4646 
+L 557 0 
+z
+M 1766 2605 
+L 1184 2605 
+L 1184 4134 
+L 1837 4134 
+C 2534 4134 3091 4077 3091 3366 
+C 3091 2605 2291 2605 1766 2605 
+z
+M 1882 506 
+L 1184 506 
+L 1184 2099 
+L 1798 2099 
+C 2778 2099 3194 1952 3194 1293 
+C 3194 576 2592 506 1882 506 
+z
+" transform="scale(0.015625)"/>
+        <path id="Unica77Cohere-Regular-53" d="M 896 1523 
+L 262 1523 
+C 262 1478 262 1434 269 1350 
+C 339 422 986 -96 2016 -96 
+C 3034 -96 3725 442 3725 1242 
+C 3725 2144 2950 2406 2234 2605 
+L 2022 2662 
+C 1466 2816 1011 2989 1011 3507 
+C 1011 4006 1504 4243 1984 4243 
+C 2451 4243 2906 4006 3002 3450 
+C 3008 3405 3014 3328 3014 3264 
+L 3629 3264 
+C 3629 3341 3622 3437 3616 3488 
+C 3520 4282 2925 4742 1997 4742 
+C 1037 4742 352 4224 352 3469 
+C 352 2579 1075 2323 1786 2131 
+L 1952 2086 
+C 2534 1926 3059 1754 3059 1203 
+C 3059 717 2669 403 2016 403 
+C 1338 403 954 749 902 1370 
+C 896 1446 896 1472 896 1523 
+z
+" transform="scale(0.015625)"/>
+        <path id="Unica77Cohere-Regular-3d" d="M 486 2112 
+L 3539 2112 
+L 3539 2611 
+L 486 2611 
+L 486 2112 
+z
+M 486 915 
+L 3539 915 
+L 3539 1414 
+L 486 1414 
+L 486 915 
+z
+" transform="scale(0.015625)"/>
+        <path id="Unica77Cohere-Regular-31" d="M 1107 3450 
+L 1107 0 
+L 1696 0 
+L 1696 4646 
+L 1197 4646 
+C 1139 4102 864 3904 134 3866 
+L 134 3450 
+L 1107 3450 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#Unica77Cohere-Regular-42"/>
+       <use xlink:href="#Unica77Cohere-Regular-53" transform="translate(64.599991 0)"/>
+       <use xlink:href="#Unica77Cohere-Regular-3d" transform="translate(126.899979 0)"/>
+       <use xlink:href="#Unica77Cohere-Regular-31" transform="translate(189.899963 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m476ac78f08" x="253.886492" y="368.699844" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <!-- BS=2 -->
+      <g transform="translate(241.943504 382.777734) scale(0.0975 -0.0975)">
+       <defs>
+        <path id="Unica77Cohere-Regular-32" d="M 301 0 
+L 3232 0 
+L 3232 518 
+L 966 518 
+C 1043 1165 1606 1555 2048 1856 
+C 2880 2426 3206 2829 3206 3469 
+C 3206 4198 2675 4742 1830 4742 
+C 934 4742 307 4205 294 3258 
+L 890 3258 
+C 915 3917 1229 4256 1779 4256 
+C 2259 4256 2592 3974 2592 3501 
+C 2592 2995 2349 2694 1619 2214 
+C 838 1696 301 1158 301 186 
+L 301 0 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#Unica77Cohere-Regular-42"/>
+       <use xlink:href="#Unica77Cohere-Regular-53" transform="translate(64.599991 0)"/>
+       <use xlink:href="#Unica77Cohere-Regular-3d" transform="translate(126.899979 0)"/>
+       <use xlink:href="#Unica77Cohere-Regular-32" transform="translate(189.899963 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m476ac78f08" x="389.62843" y="368.699844" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <!-- BS=4 -->
+      <g transform="translate(377.563566 382.777734) scale(0.0975 -0.0975)">
+       <defs>
+        <path id="Unica77Cohere-Regular-34" d="M 3526 1210 
+L 3526 1715 
+L 2739 1715 
+L 2739 4646 
+L 2029 4646 
+L 141 1696 
+L 141 1210 
+L 2144 1210 
+L 2144 0 
+L 2739 0 
+L 2739 1210 
+L 3526 1210 
+z
+M 768 1715 
+L 1741 3309 
+C 1901 3565 2022 3725 2163 3981 
+L 2208 3974 
+C 2182 3654 2176 3053 2176 2746 
+L 2176 1715 
+L 768 1715 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#Unica77Cohere-Regular-42"/>
+       <use xlink:href="#Unica77Cohere-Regular-53" transform="translate(64.599991 0)"/>
+       <use xlink:href="#Unica77Cohere-Regular-3d" transform="translate(126.899979 0)"/>
+       <use xlink:href="#Unica77Cohere-Regular-34" transform="translate(189.899963 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m476ac78f08" x="525.370367" y="368.699844" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <!-- BS=8 -->
+      <g transform="translate(513.236949 382.777734) scale(0.0975 -0.0975)">
+       <defs>
+        <path id="Unica77Cohere-Regular-38" d="M 1894 -96 
+C 2816 -96 3462 416 3462 1242 
+C 3462 1856 3174 2240 2547 2406 
+L 2547 2438 
+C 3066 2554 3341 2970 3341 3507 
+C 3341 4243 2784 4742 1894 4742 
+C 992 4742 435 4243 435 3507 
+C 435 2970 717 2554 1229 2438 
+L 1229 2406 
+C 602 2240 314 1856 314 1242 
+C 314 416 960 -96 1894 -96 
+z
+M 1894 2662 
+C 1376 2662 1030 2989 1030 3482 
+C 1030 3949 1363 4269 1894 4269 
+C 2419 4269 2746 3949 2746 3482 
+C 2746 2989 2406 2662 1894 2662 
+z
+M 1894 378 
+C 1325 378 947 717 947 1280 
+C 947 1811 1325 2170 1894 2170 
+C 2458 2170 2835 1811 2835 1280 
+C 2835 717 2458 378 1894 378 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#Unica77Cohere-Regular-42"/>
+       <use xlink:href="#Unica77Cohere-Regular-53" transform="translate(64.599991 0)"/>
+       <use xlink:href="#Unica77Cohere-Regular-3d" transform="translate(126.899979 0)"/>
+       <use xlink:href="#Unica77Cohere-Regular-38" transform="translate(189.899963 0)"/>
+      </g>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_5">
+      <path d="M 57.019961 368.699844 
+L 586.494961 368.699844 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 1.85,0.8; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.1; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_6">
+      <defs>
+       <path id="m40f7b3fe22" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m40f7b3fe22" x="55.019961" y="368.699844" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <!-- 0.00 -->
+      <g transform="translate(27.797852 372.161094) scale(0.0975 -0.0975)">
+       <defs>
+        <path id="CohereText-Regular-30" d="M 1952 -61 
+Q 1434 -61 1051 212 
+Q 669 486 465 996 
+Q 262 1507 262 2208 
+Q 262 2909 465 3419 
+Q 669 3930 1051 4203 
+Q 1434 4477 1952 4477 
+Q 2470 4477 2852 4203 
+Q 3235 3930 3438 3419 
+Q 3642 2909 3642 2208 
+Q 3642 1507 3438 996 
+Q 3235 486 2852 212 
+Q 2470 -61 1952 -61 
+z
+M 838 2208 
+Q 838 1638 968 1241 
+Q 1098 845 1347 638 
+Q 1597 432 1952 432 
+Q 2307 432 2556 638 
+Q 2806 845 2936 1241 
+Q 3066 1638 3066 2208 
+Q 3066 2778 2936 3174 
+Q 2806 3571 2556 3777 
+Q 2307 3984 1952 3984 
+Q 1597 3984 1347 3777 
+Q 1098 3571 968 3174 
+Q 838 2778 838 2208 
+z
+M 1725 1885 
+Q 1680 1885 1654 1910 
+Q 1629 1936 1629 1981 
+L 1629 2435 
+Q 1629 2480 1654 2505 
+Q 1680 2531 1725 2531 
+L 2179 2531 
+Q 2224 2531 2249 2505 
+Q 2275 2480 2275 2435 
+L 2275 1981 
+Q 2275 1936 2249 1910 
+Q 2224 1885 2179 1885 
+L 1725 1885 
+z
+" transform="scale(0.015625)"/>
+        <path id="CohereText-Regular-2e" d="M 528 0 
+Q 483 0 457 25 
+Q 432 51 432 96 
+L 432 566 
+Q 432 611 457 636 
+Q 483 662 528 662 
+L 1034 662 
+Q 1078 662 1104 636 
+Q 1130 611 1130 566 
+L 1130 96 
+Q 1130 51 1104 25 
+Q 1078 0 1034 0 
+L 528 0 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CohereText-Regular-30"/>
+       <use xlink:href="#CohereText-Regular-2e" transform="translate(61.000015 0)"/>
+       <use xlink:href="#CohereText-Regular-30" transform="translate(85.400009 0)"/>
+       <use xlink:href="#CohereText-Regular-30" transform="translate(146.400024 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_7">
+      <path d="M 57.019961 325.409618 
+L 586.494961 325.409618 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 1.85,0.8; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.1; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m40f7b3fe22" x="55.019961" y="325.409618" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <!-- 0.25 -->
+      <g transform="translate(27.797852 328.870868) scale(0.0975 -0.0975)">
+       <defs>
+        <path id="CohereText-Regular-32" d="M 560 0 
+Q 515 0 489 25 
+Q 464 51 464 96 
+L 464 339 
+Q 464 410 512 458 
+L 2109 2029 
+Q 2483 2394 2644 2675 
+Q 2806 2957 2806 3242 
+Q 2806 3590 2582 3792 
+Q 2358 3994 1978 3994 
+Q 1587 3994 1342 3782 
+Q 1098 3571 1024 3171 
+Q 1011 3082 922 3082 
+L 550 3082 
+Q 502 3082 478 3109 
+Q 454 3136 464 3184 
+Q 566 3808 960 4142 
+Q 1354 4477 1990 4477 
+Q 2410 4477 2725 4326 
+Q 3040 4176 3211 3899 
+Q 3382 3622 3382 3254 
+Q 3382 2890 3180 2533 
+Q 2979 2176 2518 1725 
+L 1248 486 
+L 3354 486 
+Q 3398 486 3424 460 
+Q 3450 435 3450 390 
+L 3450 96 
+Q 3450 51 3424 25 
+Q 3398 0 3354 0 
+L 560 0 
+z
+" transform="scale(0.015625)"/>
+        <path id="CohereText-Regular-35" d="M 493 1942 
+L 998 1942 
+Q 1120 2221 1369 2376 
+Q 1619 2531 1952 2531 
+Q 2259 2531 2492 2400 
+Q 2726 2269 2854 2030 
+Q 2982 1792 2982 1475 
+Q 2982 1158 2854 918 
+Q 2726 678 2492 545 
+Q 2259 413 1952 413 
+Q 1654 413 1428 528 
+Q 1203 643 1072 854 
+Q 941 1066 922 1347 
+L 365 1347 
+Q 390 922 593 603 
+Q 797 285 1149 112 
+Q 1501 -61 1962 -61 
+Q 2435 -61 2793 131 
+Q 3152 323 3350 675 
+Q 3549 1027 3549 1488 
+Q 3549 1930 3361 2267 
+Q 3174 2605 2836 2789 
+Q 2499 2973 2054 2973 
+Q 1488 2973 1142 2666 
+Q 1101 2630 1075 2630 
+Q 1027 2630 1034 2714 
+L 1107 3846 
+Q 1114 3939 1206 3939 
+L 3290 3939 
+L 3290 4416 
+L 653 4416 
+L 493 1942 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CohereText-Regular-30"/>
+       <use xlink:href="#CohereText-Regular-2e" transform="translate(61.000015 0)"/>
+       <use xlink:href="#CohereText-Regular-32" transform="translate(85.400009 0)"/>
+       <use xlink:href="#CohereText-Regular-35" transform="translate(146.400024 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_9">
+      <path d="M 57.019961 282.119393 
+L 586.494961 282.119393 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 1.85,0.8; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.1; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m40f7b3fe22" x="55.019961" y="282.119393" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <!-- 0.50 -->
+      <g transform="translate(27.797852 285.580643) scale(0.0975 -0.0975)">
+       <use xlink:href="#CohereText-Regular-30"/>
+       <use xlink:href="#CohereText-Regular-2e" transform="translate(61.000015 0)"/>
+       <use xlink:href="#CohereText-Regular-35" transform="translate(85.400009 0)"/>
+       <use xlink:href="#CohereText-Regular-30" transform="translate(146.400024 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_11">
+      <path d="M 57.019961 238.829168 
+L 586.494961 238.829168 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 1.85,0.8; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.1; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#m40f7b3fe22" x="55.019961" y="238.829168" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <!-- 0.75 -->
+      <g transform="translate(27.797852 242.290418) scale(0.0975 -0.0975)">
+       <defs>
+        <path id="CohereText-Regular-37" d="M 1133 0 
+Q 1050 0 1050 64 
+Q 1050 86 1062 112 
+L 2877 3926 
+L 960 3926 
+L 960 3261 
+Q 960 3216 934 3190 
+Q 909 3165 864 3165 
+L 570 3165 
+Q 525 3165 499 3190 
+Q 474 3216 474 3261 
+L 474 4320 
+Q 474 4365 499 4390 
+Q 525 4416 570 4416 
+L 3411 4416 
+Q 3456 4416 3481 4390 
+Q 3507 4365 3507 4320 
+L 3507 4038 
+Q 3507 3971 3482 3920 
+L 1658 70 
+Q 1626 0 1542 0 
+L 1133 0 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CohereText-Regular-30"/>
+       <use xlink:href="#CohereText-Regular-2e" transform="translate(61.000015 0)"/>
+       <use xlink:href="#CohereText-Regular-37" transform="translate(85.400009 0)"/>
+       <use xlink:href="#CohereText-Regular-35" transform="translate(146.400024 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_13">
+      <path d="M 57.019961 195.538943 
+L 586.494961 195.538943 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 1.85,0.8; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.1; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#m40f7b3fe22" x="55.019961" y="195.538943" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <!-- 1.00 -->
+      <g transform="translate(27.797852 199.000193) scale(0.0975 -0.0975)">
+       <defs>
+        <path id="CohereText-Regular-31" d="M 1818 4320 
+Q 1818 4365 1843 4390 
+Q 1869 4416 1914 4416 
+L 2262 4416 
+Q 2307 4416 2332 4390 
+Q 2358 4365 2358 4320 
+L 2358 477 
+L 3539 477 
+Q 3584 477 3609 451 
+Q 3635 426 3635 381 
+L 3635 96 
+Q 3635 51 3609 25 
+Q 3584 0 3539 0 
+L 573 0 
+Q 528 0 502 25 
+Q 477 51 477 96 
+L 477 381 
+Q 477 426 502 451 
+Q 528 477 573 477 
+L 1802 477 
+L 1802 3165 
+L 662 3165 
+Q 618 3165 592 3190 
+Q 566 3216 566 3261 
+L 566 3549 
+Q 566 3594 592 3619 
+Q 618 3645 662 3645 
+L 1475 3645 
+Q 1658 3645 1738 3729 
+Q 1818 3814 1818 4010 
+L 1818 4320 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CohereText-Regular-31"/>
+       <use xlink:href="#CohereText-Regular-2e" transform="translate(61.000015 0)"/>
+       <use xlink:href="#CohereText-Regular-30" transform="translate(85.400009 0)"/>
+       <use xlink:href="#CohereText-Regular-30" transform="translate(146.400024 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_15">
+      <path d="M 57.019961 152.248717 
+L 586.494961 152.248717 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 1.85,0.8; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.1; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#m40f7b3fe22" x="55.019961" y="152.248717" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <!-- 1.25 -->
+      <g transform="translate(27.797852 155.709967) scale(0.0975 -0.0975)">
+       <use xlink:href="#CohereText-Regular-31"/>
+       <use xlink:href="#CohereText-Regular-2e" transform="translate(61.000015 0)"/>
+       <use xlink:href="#CohereText-Regular-32" transform="translate(85.400009 0)"/>
+       <use xlink:href="#CohereText-Regular-35" transform="translate(146.400024 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_7">
+     <g id="line2d_17">
+      <path d="M 57.019961 108.958492 
+L 586.494961 108.958492 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 1.85,0.8; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.1; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_18">
+      <g>
+       <use xlink:href="#m40f7b3fe22" x="55.019961" y="108.958492" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <!-- 1.50 -->
+      <g transform="translate(27.797852 112.419742) scale(0.0975 -0.0975)">
+       <use xlink:href="#CohereText-Regular-31"/>
+       <use xlink:href="#CohereText-Regular-2e" transform="translate(61.000015 0)"/>
+       <use xlink:href="#CohereText-Regular-35" transform="translate(85.400009 0)"/>
+       <use xlink:href="#CohereText-Regular-30" transform="translate(146.400024 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_19">
+      <path d="M 57.019961 65.668267 
+L 586.494961 65.668267 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 1.85,0.8; stroke-dashoffset: 0; stroke: #000000; stroke-opacity: 0.1; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_20">
+      <g>
+       <use xlink:href="#m40f7b3fe22" x="55.019961" y="65.668267" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_12">
+      <!-- 1.75 -->
+      <g transform="translate(27.797852 69.129517) scale(0.0975 -0.0975)">
+       <use xlink:href="#CohereText-Regular-31"/>
+       <use xlink:href="#CohereText-Regular-2e" transform="translate(61.000015 0)"/>
+       <use xlink:href="#CohereText-Regular-37" transform="translate(85.400009 0)"/>
+       <use xlink:href="#CohereText-Regular-35" transform="translate(146.400024 0)"/>
+      </g>
+     </g>
+    </g>
+    <g id="text_13">
+     <!-- Normalized decode throughput -->
+     <g transform="translate(15.491602 287.09082) rotate(-90) scale(0.1125 -0.1125)">
+      <defs>
+       <path id="Unica77Cohere-Regular-4e" d="M 557 0 
+L 1133 0 
+L 1133 2317 
+C 1133 2630 1107 3533 1088 4051 
+L 1120 4051 
+C 1216 3859 1766 2848 3392 0 
+L 4237 0 
+L 4237 4646 
+L 3654 4646 
+L 3654 2330 
+C 3654 2016 3674 1158 3693 653 
+L 3661 653 
+C 3565 851 3053 1805 1414 4646 
+L 557 4646 
+L 557 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-6f" d="M 1843 -96 
+C 2842 -96 3456 621 3456 1651 
+C 3456 2675 2835 3398 1850 3398 
+C 870 3398 256 2675 256 1651 
+C 256 621 864 -96 1843 -96 
+z
+M 1843 371 
+C 1242 371 864 890 864 1658 
+C 864 2419 1248 2925 1850 2925 
+C 2458 2925 2848 2406 2848 1645 
+C 2848 883 2464 371 1843 371 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-72" d="M 480 0 
+L 1069 0 
+L 1069 1517 
+C 1069 2317 1235 2829 1946 2829 
+C 2061 2829 2189 2810 2336 2784 
+L 2336 3302 
+C 2214 3328 2086 3341 1965 3341 
+C 1600 3341 1293 3213 1037 2816 
+L 1037 3302 
+L 480 3302 
+L 480 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-6d" d="M 480 0 
+L 1069 0 
+L 1069 1632 
+C 1069 2125 1158 2906 1869 2906 
+C 2483 2906 2528 2310 2528 1830 
+L 2528 0 
+L 3117 0 
+L 3117 1632 
+C 3117 2125 3206 2906 3917 2906 
+C 4531 2906 4570 2310 4570 1830 
+L 4570 0 
+L 5158 0 
+L 5158 2150 
+C 5158 2899 4858 3373 4096 3373 
+C 3629 3373 3200 3194 2925 2765 
+C 2771 3194 2400 3373 2022 3373 
+C 1581 3373 1222 3187 1030 2880 
+L 1030 3302 
+L 480 3302 
+L 480 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-61" d="M 1728 3398 
+C 934 3398 378 2963 378 2285 
+L 960 2285 
+C 960 2726 1267 2957 1728 2957 
+C 1926 2957 2093 2912 2208 2822 
+C 2381 2694 2458 2470 2458 2182 
+L 2458 2067 
+L 2125 2035 
+C 1306 1958 256 1875 256 928 
+C 256 346 672 -70 1402 -70 
+C 1875 -70 2240 77 2522 448 
+C 2528 224 2547 96 2566 0 
+L 3117 0 
+C 3053 301 3034 614 3034 998 
+L 3034 1901 
+C 3034 2342 3008 2867 2618 3162 
+C 2426 3309 2138 3398 1728 3398 
+z
+M 851 915 
+C 851 1510 1728 1549 2246 1594 
+L 2458 1613 
+L 2458 1427 
+C 2458 550 2010 358 1536 358 
+C 1114 358 851 595 851 915 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-6c" d="M 480 0 
+L 1069 0 
+L 1069 4646 
+L 480 4646 
+L 480 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-69" d="M 774 3936 
+C 992 3936 1165 4096 1165 4326 
+C 1165 4557 992 4717 774 4717 
+C 557 4717 384 4557 384 4326 
+C 384 4096 557 3936 774 3936 
+z
+M 480 0 
+L 1069 0 
+L 1069 3302 
+L 480 3302 
+L 480 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-7a" d="M 166 0 
+L 2733 0 
+L 2733 480 
+L 1606 480 
+C 1414 480 1030 474 838 454 
+L 2656 2816 
+L 2656 3302 
+L 256 3302 
+L 256 2816 
+L 1280 2816 
+C 1453 2816 1830 2822 2003 2848 
+L 166 480 
+L 166 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-65" d="M 256 1651 
+C 256 563 813 -96 1824 -96 
+C 2579 -96 3187 275 3328 986 
+L 2707 986 
+C 2586 563 2266 371 1843 371 
+C 1549 371 1293 506 1120 730 
+C 973 915 883 1178 870 1466 
+L 3334 1466 
+C 3334 1587 3328 1702 3322 1805 
+C 3238 2816 2771 3398 1837 3398 
+C 864 3398 256 2650 256 1651 
+z
+M 883 1946 
+C 966 2611 1312 2925 1811 2925 
+C 2093 2925 2349 2810 2509 2566 
+C 2611 2413 2682 2208 2707 1946 
+L 883 1946 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-64" d="M 2701 0 
+L 3264 0 
+L 3264 4646 
+L 2675 4646 
+L 2675 2918 
+C 2458 3251 2106 3373 1722 3373 
+C 819 3373 262 2637 262 1651 
+C 262 550 806 -70 1677 -70 
+C 2125 -70 2477 102 2701 435 
+L 2701 0 
+z
+M 870 1651 
+C 870 2438 1216 2906 1760 2906 
+C 2317 2906 2688 2438 2688 1651 
+C 2688 883 2317 397 1760 397 
+C 1216 397 870 883 870 1651 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-20" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-63" d="M 3206 1107 
+L 2630 1107 
+C 2528 608 2234 371 1805 371 
+C 1210 371 870 883 870 1651 
+C 870 2413 1197 2925 1805 2925 
+C 2022 2925 2202 2867 2330 2752 
+C 2464 2637 2554 2445 2586 2221 
+L 3200 2221 
+C 3142 2624 2989 2899 2746 3104 
+C 2515 3296 2189 3398 1811 3398 
+C 819 3398 256 2650 256 1651 
+C 256 608 800 -96 1798 -96 
+C 2605 -96 3066 301 3206 1107 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-74" d="M 1523 -58 
+C 1670 -58 1837 -38 2010 0 
+L 2010 474 
+C 1875 442 1766 442 1677 442 
+C 1299 442 1280 704 1280 1171 
+L 1280 2816 
+L 1997 2816 
+L 1997 3302 
+L 1280 3302 
+L 1280 4102 
+L 691 4102 
+L 691 3302 
+L 83 3302 
+L 83 2816 
+L 691 2816 
+L 691 896 
+C 691 173 1005 -58 1523 -58 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-68" d="M 480 0 
+L 1069 0 
+L 1069 1728 
+C 1069 2522 1395 2906 1946 2906 
+C 2246 2906 2432 2784 2528 2598 
+C 2637 2400 2650 2125 2650 1856 
+L 2650 0 
+L 3238 0 
+L 3238 1978 
+C 3238 2291 3226 2566 3130 2784 
+C 2970 3142 2579 3373 2086 3373 
+C 1734 3373 1325 3264 1069 2899 
+L 1069 4646 
+L 480 4646 
+L 480 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-75" d="M 1594 -70 
+C 1926 -70 2342 26 2637 422 
+L 2637 0 
+L 3181 0 
+L 3181 3302 
+L 2598 3302 
+L 2598 1568 
+C 2598 774 2272 397 1722 397 
+C 1088 397 1024 934 1024 1440 
+L 1024 3302 
+L 442 3302 
+L 442 1382 
+C 442 1069 442 742 550 518 
+C 723 166 1018 -70 1594 -70 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-67" d="M 262 1715 
+C 262 781 794 109 1613 109 
+C 2080 109 2374 230 2656 608 
+L 2656 282 
+C 2656 -589 2355 -870 1779 -870 
+C 1587 -870 1421 -838 1293 -768 
+C 1126 -672 1024 -512 1011 -275 
+L 403 -275 
+C 435 -640 582 -896 826 -1069 
+C 1056 -1229 1370 -1312 1766 -1312 
+C 2893 -1312 3213 -653 3213 474 
+L 3213 3302 
+L 2669 3302 
+L 2669 2842 
+C 2477 3194 2125 3373 1645 3373 
+C 768 3373 262 2573 262 1715 
+z
+M 864 1779 
+C 864 2458 1190 2918 1760 2918 
+C 2298 2918 2662 2445 2662 1773 
+C 2662 1030 2310 563 1760 563 
+C 1210 563 864 1018 864 1779 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-70" d="M 480 -1286 
+L 1069 -1286 
+L 1069 371 
+C 1274 58 1626 -70 2074 -70 
+C 2886 -70 3482 570 3482 1651 
+C 3482 2656 2982 3373 2099 3373 
+C 1613 3373 1267 3187 1043 2854 
+L 1043 3302 
+L 480 3302 
+L 480 -1286 
+z
+M 1984 397 
+C 1427 397 1056 902 1056 1651 
+C 1056 2394 1427 2906 1984 2906 
+C 2528 2906 2880 2438 2880 1651 
+C 2880 864 2528 397 1984 397 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#Unica77Cohere-Regular-4e"/>
+      <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(74.899994 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-72" transform="translate(132.899979 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-6d" transform="translate(170.699966 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-61" transform="translate(258.199951 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-6c" transform="translate(312.199936 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-69" transform="translate(336.399933 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-7a" transform="translate(360.59993 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(405.799927 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-64" transform="translate(461.999924 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(520.499908 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-64" transform="translate(540.499893 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(598.999878 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-63" transform="translate(655.199875 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(708.299866 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-64" transform="translate(766.29985 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(824.799835 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(880.999832 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(900.999817 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-68" transform="translate(934.299805 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-72" transform="translate(991.799789 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(1029.599777 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-75" transform="translate(1087.599762 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-67" transform="translate(1144.799759 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-68" transform="translate(1202.39975 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-70" transform="translate(1259.899734 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-75" transform="translate(1318.399719 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(1375.599716 0)"/>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_21">
+    <path d="M 57.019961 195.538943 
+L 586.494961 195.538943 
+" clip-path="url(#pd8b9566833)" style="fill: none; stroke-dasharray: 3.7,1.6; stroke-dashoffset: 0; stroke: #c44b3d"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 81.087006 368.699844 
+L 81.087006 198.538943 
+Q 81.087006 195.538943 84.087006 195.538943 
+L 111.479523 195.538943 
+Q 114.479523 195.538943 114.479523 198.538943 
+L 114.479523 368.699844 
+z
+" clip-path="url(#pd8b9566833)" style="fill: #c8d2f4"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 216.828944 368.699844 
+L 216.828944 198.538943 
+Q 216.828944 195.538943 219.828944 195.538943 
+L 247.22146 195.538943 
+Q 250.22146 195.538943 250.22146 198.538943 
+L 250.22146 368.699844 
+z
+" clip-path="url(#pd8b9566833)" style="fill: #c8d2f4"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 352.570881 368.699844 
+L 352.570881 198.538943 
+Q 352.570881 195.538943 355.570881 195.538943 
+L 382.963397 195.538943 
+Q 385.963397 195.538943 385.963397 198.538943 
+L 385.963397 368.699844 
+z
+" clip-path="url(#pd8b9566833)" style="fill: #c8d2f4"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 488.312818 368.699844 
+L 488.312818 198.538943 
+Q 488.312818 195.538943 491.312818 195.538943 
+L 518.705334 195.538943 
+Q 521.705334 195.538943 521.705334 198.538943 
+L 521.705334 368.699844 
+z
+" clip-path="url(#pd8b9566833)" style="fill: #c8d2f4"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 121.809588 368.699844 
+L 121.809588 99.055776 
+Q 121.809588 96.055776 124.809588 96.055776 
+L 152.202104 96.055776 
+Q 155.202104 96.055776 155.202104 99.055776 
+L 155.202104 368.699844 
+z
+" clip-path="url(#pd8b9566833)" style="fill: #4c6ee6"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 257.551525 368.699844 
+L 257.551525 109.075771 
+Q 257.551525 106.075771 260.551525 106.075771 
+L 287.944041 106.075771 
+Q 290.944041 106.075771 290.944041 109.075771 
+L 290.944041 368.699844 
+z
+" clip-path="url(#pd8b9566833)" style="fill: #4c6ee6"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 393.293462 368.699844 
+L 393.293462 103.08575 
+Q 393.293462 100.08575 396.293462 100.08575 
+L 423.685978 100.08575 
+Q 426.685978 100.08575 426.685978 103.08575 
+L 426.685978 368.699844 
+z
+" clip-path="url(#pd8b9566833)" style="fill: #4c6ee6"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 529.035399 368.699844 
+L 529.035399 143.004925 
+Q 529.035399 140.004925 532.035399 140.004925 
+L 559.427915 140.004925 
+Q 562.427915 140.004925 562.427915 143.004925 
+L 562.427915 368.699844 
+z
+" clip-path="url(#pd8b9566833)" style="fill: #4c6ee6"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 55.019961 368.699844 
+L 55.019961 46.979844 
+" style="fill: none; stroke: #000000; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 57.019961 368.699844 
+L 586.494961 368.699844 
+" style="fill: none; stroke: #000000; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_14">
+    <!-- 185 -->
+    <g transform="translate(92.128382 280.476249) scale(0.075 -0.075)">
+     <defs>
+      <path id="Unica77Cohere-Regular-35" d="M 589 4653 
+L 346 2035 
+L 973 1978 
+C 1120 2374 1402 2586 1830 2586 
+C 2419 2586 2752 2125 2752 1485 
+C 2752 794 2374 390 1805 390 
+C 1312 390 960 685 902 1165 
+L 288 1165 
+C 390 390 966 -96 1811 -96 
+C 2726 -96 3373 570 3373 1517 
+C 3373 2419 2829 3072 1946 3072 
+C 1510 3072 1178 2957 928 2611 
+L 1082 4141 
+L 3104 4141 
+L 3104 4653 
+L 589 4653 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Unica77Cohere-Regular-31"/>
+     <use xlink:href="#Unica77Cohere-Regular-38" transform="translate(35.199997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-35" transform="translate(94.199982 0)"/>
+    </g>
+    <!-- tok/s -->
+    <g transform="translate(89.162366 287.700038) scale(0.075 -0.075)">
+     <defs>
+      <path id="Unica77Cohere-Regular-6b" d="M 480 0 
+L 1069 0 
+L 1069 1722 
+L 1075 1722 
+L 2509 0 
+L 3251 0 
+L 1645 1856 
+L 3104 3302 
+L 2406 3302 
+L 1075 1952 
+L 1069 1952 
+L 1069 4646 
+L 480 4646 
+L 480 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-2f" d="M 659 0 
+L 2304 4646 
+L 1798 4646 
+L 147 0 
+L 659 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-73" d="M 1658 -96 
+C 2432 -96 3002 294 3002 890 
+C 3002 1709 2310 1824 1722 1939 
+C 1286 2022 909 2106 909 2477 
+C 909 2758 1171 2938 1574 2938 
+C 2080 2938 2317 2726 2323 2291 
+L 2906 2291 
+C 2899 3008 2419 3398 1587 3398 
+C 806 3398 294 3002 294 2438 
+C 294 1632 947 1530 1523 1421 
+C 1971 1338 2374 1254 2374 851 
+C 2374 531 2118 358 1670 358 
+C 1126 358 813 595 813 1062 
+L 218 1062 
+C 224 326 742 -96 1658 -96 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Unica77Cohere-Regular-74"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(33.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6b" transform="translate(91.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-2f" transform="translate(141.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(179.399948 0)"/>
+    </g>
+   </g>
+   <g id="text_15">
+    <!-- 307 -->
+    <g transform="translate(227.225202 280.476249) scale(0.075 -0.075)">
+     <defs>
+      <path id="Unica77Cohere-Regular-33" d="M 902 1382 
+L 275 1382 
+C 275 486 864 -96 1818 -96 
+C 2803 -96 3398 493 3398 1274 
+C 3398 1850 3104 2214 2547 2362 
+L 2547 2394 
+C 3008 2509 3341 2982 3341 3507 
+C 3341 4230 2752 4742 1888 4742 
+C 947 4742 365 4230 326 3328 
+L 934 3328 
+C 954 3923 1293 4256 1856 4256 
+C 2381 4256 2720 3942 2720 3456 
+C 2720 2899 2368 2605 1747 2605 
+L 1606 2605 
+L 1606 2112 
+L 1811 2112 
+C 2413 2112 2771 1811 2771 1286 
+C 2771 774 2419 390 1850 390 
+C 1254 390 902 762 902 1382 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-30" d="M 1920 4742 
+C 934 4742 326 3891 326 2323 
+C 326 755 934 -96 1920 -96 
+C 2906 -96 3520 717 3520 2323 
+C 3520 3891 2906 4742 1920 4742 
+z
+M 1920 4256 
+C 2573 4256 2886 3584 2886 2323 
+C 2886 1088 2573 390 1920 390 
+C 1261 390 954 1088 954 2323 
+C 954 3584 1261 4256 1920 4256 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-37" d="M 826 0 
+L 1485 0 
+C 1766 1517 2349 2899 3053 4205 
+L 3053 4646 
+L 102 4646 
+L 102 4128 
+L 2406 4128 
+C 1658 2752 1088 1350 826 0 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Unica77Cohere-Regular-33"/>
+     <use xlink:href="#Unica77Cohere-Regular-30" transform="translate(58.199997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-37" transform="translate(118.299988 0)"/>
+    </g>
+    <!-- tok/s -->
+    <g transform="translate(224.904303 287.700038) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-74"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(33.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6b" transform="translate(91.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-2f" transform="translate(141.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(179.399948 0)"/>
+    </g>
+   </g>
+   <g id="text_16">
+    <!-- 453 -->
+    <g transform="translate(362.80249 280.476249) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-34"/>
+     <use xlink:href="#Unica77Cohere-Regular-35" transform="translate(57.599991 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-33" transform="translate(114.199982 0)"/>
+    </g>
+    <!-- tok/s -->
+    <g transform="translate(360.64624 287.700038) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-74"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(33.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6b" transform="translate(91.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-2f" transform="translate(141.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(179.399948 0)"/>
+    </g>
+   </g>
+   <g id="text_17">
+    <!-- 757 -->
+    <g transform="translate(499.159076 280.476249) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-37"/>
+     <use xlink:href="#Unica77Cohere-Regular-35" transform="translate(49.699997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-37" transform="translate(106.299988 0)"/>
+    </g>
+    <!-- tok/s -->
+    <g transform="translate(496.388178 287.700038) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-74"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(33.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6b" transform="translate(91.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-2f" transform="translate(141.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(179.399948 0)"/>
+    </g>
+   </g>
+   <g id="text_18">
+    <!-- 292 -->
+    <g transform="translate(132.195299 230.734665) scale(0.075 -0.075)">
+     <defs>
+      <path id="Unica77Cohere-Regular-39" d="M 941 1094 
+L 339 1094 
+C 410 346 973 -96 1798 -96 
+C 2995 -96 3386 870 3386 2560 
+C 3386 3968 2842 4742 1786 4742 
+C 941 4742 294 4147 294 3238 
+C 294 2336 870 1741 1709 1741 
+C 2195 1741 2541 1939 2778 2342 
+L 2778 2093 
+C 2778 1082 2432 390 1779 390 
+C 1318 390 1005 640 941 1094 
+z
+M 1766 4262 
+C 2330 4262 2675 3821 2675 3226 
+C 2675 2669 2278 2221 1747 2221 
+C 1242 2221 883 2669 883 3238 
+C 883 3827 1248 4262 1766 4262 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Unica77Cohere-Regular-32"/>
+     <use xlink:href="#Unica77Cohere-Regular-39" transform="translate(55.099991 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-32" transform="translate(113.199982 0)"/>
+    </g>
+    <!-- tok/s -->
+    <g transform="translate(129.884947 237.958454) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-74"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(33.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6b" transform="translate(91.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-2f" transform="translate(141.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(179.399948 0)"/>
+    </g>
+   </g>
+   <g id="text_19">
+    <!-- 1.57× -->
+    <g style="fill: #4c6ee6" transform="translate(128.313346 87.320902) scale(0.09 -0.09)">
+     <defs>
+      <path id="Unica77Cohere-Regular-2e" d="M 269 384 
+C 269 128 461 -51 704 -51 
+C 947 -51 1139 128 1139 384 
+C 1139 640 947 819 704 819 
+C 461 819 269 640 269 384 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-d7" d="M 1082 454 
+L 1997 1370 
+L 2963 403 
+L 3347 781 
+L 2381 1747 
+L 3296 2662 
+L 2944 3014 
+L 2029 2099 
+L 1069 3053 
+L 691 2675 
+L 1651 1715 
+L 736 800 
+L 1082 454 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Unica77Cohere-Regular-31"/>
+     <use xlink:href="#Unica77Cohere-Regular-2e" transform="translate(35.199997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-35" transform="translate(57.199982 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-37" transform="translate(113.799973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-d7" transform="translate(163.499969 0)"/>
+    </g>
+   </g>
+   <g id="text_20">
+    <!-- 465 -->
+    <g transform="translate(267.775517 235.744663) scale(0.075 -0.075)">
+     <defs>
+      <path id="Unica77Cohere-Regular-36" d="M 2758 3539 
+L 3386 3539 
+C 3302 4301 2790 4742 1990 4742 
+C 928 4742 326 3834 326 2291 
+C 326 774 813 -96 1939 -96 
+C 2810 -96 3430 493 3430 1504 
+C 3430 2470 2778 3027 2048 3027 
+C 1555 3027 1184 2816 934 2381 
+L 934 2541 
+C 934 3571 1331 4256 1990 4256 
+C 2438 4256 2707 4013 2758 3539 
+z
+M 1965 2541 
+C 2496 2541 2829 2099 2829 1478 
+C 2829 813 2477 384 1965 384 
+C 1434 384 1037 858 1037 1491 
+C 1037 2086 1434 2541 1965 2541 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Unica77Cohere-Regular-34"/>
+     <use xlink:href="#Unica77Cohere-Regular-36" transform="translate(57.599991 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-35" transform="translate(115.999985 0)"/>
+    </g>
+    <!-- tok/s -->
+    <g transform="translate(265.626885 242.968452) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-74"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(33.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6b" transform="translate(91.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-2f" transform="translate(141.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(179.399948 0)"/>
+    </g>
+   </g>
+   <g id="text_21">
+    <!-- 1.52× -->
+    <g style="fill: #4c6ee6" transform="translate(263.812705 97.340898) scale(0.09 -0.09)">
+     <use xlink:href="#Unica77Cohere-Regular-31"/>
+     <use xlink:href="#Unica77Cohere-Regular-2e" transform="translate(35.199997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-35" transform="translate(57.199982 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-32" transform="translate(113.799973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-d7" transform="translate(168.899963 0)"/>
+    </g>
+   </g>
+   <g id="text_22">
+    <!-- 703 -->
+    <g transform="translate(403.68972 232.749652) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-37"/>
+     <use xlink:href="#Unica77Cohere-Regular-30" transform="translate(49.699997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-33" transform="translate(109.799988 0)"/>
+    </g>
+    <!-- tok/s -->
+    <g transform="translate(401.368822 239.973441) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-74"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(33.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6b" transform="translate(91.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-2f" transform="translate(141.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(179.399948 0)"/>
+    </g>
+   </g>
+   <g id="text_23">
+    <!-- 1.55× -->
+    <g style="fill: #4c6ee6" transform="translate(399.487142 91.350877) scale(0.09 -0.09)">
+     <use xlink:href="#Unica77Cohere-Regular-31"/>
+     <use xlink:href="#Unica77Cohere-Regular-2e" transform="translate(35.199997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-35" transform="translate(57.199982 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-35" transform="translate(113.799973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-d7" transform="translate(170.399963 0)"/>
+    </g>
+   </g>
+   <g id="text_24">
+    <!-- 1000 -->
+    <g transform="translate(537.650993 252.70924) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-31"/>
+     <use xlink:href="#Unica77Cohere-Regular-30" transform="translate(35.199997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-30" transform="translate(95.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-30" transform="translate(155.399979 0)"/>
+    </g>
+    <!-- tok/s -->
+    <g transform="translate(537.110759 259.933029) scale(0.075 -0.075)">
+     <use xlink:href="#Unica77Cohere-Regular-74"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(33.299988 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6b" transform="translate(91.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-2f" transform="translate(141.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(179.399948 0)"/>
+    </g>
+   </g>
+   <g id="text_25">
+    <!-- 1.32× -->
+    <g style="fill: #4c6ee6" transform="translate(535.224157 131.270051) scale(0.09 -0.09)">
+     <use xlink:href="#Unica77Cohere-Regular-31"/>
+     <use xlink:href="#Unica77Cohere-Regular-2e" transform="translate(35.199997 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-33" transform="translate(57.199982 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-32" transform="translate(115.399979 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-d7" transform="translate(170.499969 0)"/>
+    </g>
+   </g>
+   <g id="text_26">
+    <!-- Decode throughput at 8K context (real expert distribution) -->
+    <g transform="translate(186.076953 14.979844) scale(0.105 -0.105)">
+     <defs>
+      <path id="Unica77Cohere-Regular-44" d="M 557 0 
+L 1882 0 
+C 3590 0 4243 1101 4243 2323 
+C 4243 3590 3597 4646 2029 4646 
+L 557 4646 
+L 557 0 
+z
+M 1818 512 
+L 1184 512 
+L 1184 4134 
+L 1856 4134 
+C 3123 4134 3584 3475 3584 2323 
+C 3584 1165 3040 512 1818 512 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-4b" d="M 557 0 
+L 1184 0 
+L 1184 2362 
+L 1190 2362 
+L 3206 0 
+L 4013 0 
+L 1811 2509 
+L 3846 4646 
+L 3104 4646 
+L 1190 2573 
+L 1184 2573 
+L 1184 4646 
+L 557 4646 
+L 557 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-6e" d="M 480 0 
+L 1069 0 
+L 1069 1728 
+C 1069 2522 1395 2906 1946 2906 
+C 2579 2906 2650 2374 2650 1862 
+L 2650 0 
+L 3238 0 
+L 3238 1978 
+C 3238 2291 3213 2560 3123 2784 
+C 2976 3155 2643 3373 2074 3373 
+C 1741 3373 1325 3277 1024 2880 
+L 1024 3302 
+L 480 3302 
+L 480 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-78" d="M 19 0 
+L 685 0 
+L 1549 1293 
+L 2413 0 
+L 3136 0 
+L 1907 1709 
+L 3040 3302 
+L 2400 3302 
+L 1594 2093 
+L 838 3302 
+L 109 3302 
+L 1229 1709 
+L 19 0 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-28" d="M 1069 -678 
+L 1530 -678 
+C 1120 173 832 1133 832 2061 
+C 832 3053 1107 3757 1530 4736 
+L 1075 4736 
+C 634 3872 282 2938 282 2061 
+C 282 1178 538 282 1069 -678 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-62" d="M 1043 0 
+L 1043 422 
+C 1274 90 1626 -70 2074 -70 
+C 2886 -70 3482 589 3482 1651 
+C 3482 2656 2957 3373 2099 3373 
+C 1690 3373 1350 3264 1069 2912 
+L 1069 4646 
+L 480 4646 
+L 480 0 
+L 1043 0 
+z
+M 1056 1651 
+C 1056 2394 1427 2906 1984 2906 
+C 2528 2906 2880 2438 2880 1651 
+C 2880 864 2528 397 1984 397 
+C 1427 397 1056 954 1056 1651 
+z
+" transform="scale(0.015625)"/>
+      <path id="Unica77Cohere-Regular-29" d="M 198 -678 
+L 659 -678 
+C 1190 282 1446 1178 1446 2061 
+C 1446 2938 1094 3872 653 4736 
+L 198 4736 
+C 621 3757 896 3053 896 2061 
+C 896 1133 608 173 198 -678 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#Unica77Cohere-Regular-44"/>
+     <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(70.999985 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-63" transform="translate(127.199982 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(180.299973 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-64" transform="translate(238.299957 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(296.799942 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(352.999939 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(372.999924 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-68" transform="translate(406.299911 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-72" transform="translate(463.799896 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(501.599884 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-75" transform="translate(559.599869 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-67" transform="translate(616.799866 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-68" transform="translate(674.399857 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-70" transform="translate(731.899841 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-75" transform="translate(790.399826 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(847.599823 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(880.899811 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-61" transform="translate(900.899796 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(954.89978 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(988.199768 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-38" transform="translate(1008.199753 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-4b" transform="translate(1067.199738 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(1129.199722 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-63" transform="translate(1149.199707 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(1202.299698 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6e" transform="translate(1260.299683 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(1317.799667 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(1351.099655 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-78" transform="translate(1407.299652 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(1456.499649 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(1489.799637 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-28" transform="translate(1509.799622 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-72" transform="translate(1536.799606 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(1574.599594 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-61" transform="translate(1630.799591 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6c" transform="translate(1684.799576 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(1708.999573 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(1728.999557 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-78" transform="translate(1785.199554 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-70" transform="translate(1834.399551 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-65" transform="translate(1892.899536 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-72" transform="translate(1949.099533 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(1986.899521 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-20" transform="translate(2020.199509 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-64" transform="translate(2040.199493 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-69" transform="translate(2098.699478 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-73" transform="translate(2122.899475 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(2173.39946 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-72" transform="translate(2206.699448 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-69" transform="translate(2244.499435 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-62" transform="translate(2268.699432 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-75" transform="translate(2327.199417 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-74" transform="translate(2384.399414 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-69" transform="translate(2417.699402 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6f" transform="translate(2441.899399 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-6e" transform="translate(2499.899384 0)"/>
+     <use xlink:href="#Unica77Cohere-Regular-29" transform="translate(2557.399368 0)"/>
+    </g>
+   </g>
+   <g id="legend_1">
+    <g id="patch_13">
+     <path d="M 273.339805 31.994206 
+L 284.139805 31.994206 
+L 284.139805 22.034206 
+L 273.339805 22.034206 
+z
+" style="fill: #c8d2f4"/>
+    </g>
+    <g id="text_27">
+     <!-- vLLM -->
+     <g transform="translate(291.339805 31.154206) scale(0.09 -0.09)">
+      <defs>
+       <path id="Unica77Cohere-Regular-76" d="M 1293 0 
+L 1978 0 
+L 3200 3302 
+L 2598 3302 
+L 2016 1651 
+C 1888 1280 1766 883 1677 512 
+L 1638 512 
+C 1542 883 1427 1280 1299 1651 
+L 717 3302 
+L 70 3302 
+L 1293 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-4c" d="M 557 0 
+L 3456 0 
+L 3456 525 
+L 1184 525 
+L 1184 4646 
+L 557 4646 
+L 557 0 
+z
+" transform="scale(0.015625)"/>
+       <path id="Unica77Cohere-Regular-4d" d="M 557 0 
+L 1133 0 
+L 1133 2656 
+C 1133 3040 1107 3718 1101 4051 
+L 1133 4051 
+C 1632 2701 2125 1350 2624 0 
+L 3302 0 
+C 3795 1350 4294 2701 4787 4051 
+L 4819 4051 
+C 4813 3526 4794 3091 4794 2656 
+L 4794 0 
+L 5382 0 
+L 5382 4646 
+L 4410 4646 
+L 3315 1651 
+C 3187 1293 3091 992 3021 685 
+L 2989 685 
+C 2906 979 2829 1216 2662 1651 
+L 1523 4646 
+L 557 4646 
+L 557 0 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#Unica77Cohere-Regular-76"/>
+      <use xlink:href="#Unica77Cohere-Regular-4c" transform="translate(51.099991 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-4c" transform="translate(106.399979 0)"/>
+      <use xlink:href="#Unica77Cohere-Regular-4d" transform="translate(161.699966 0)"/>
+     </g>
+    </g>
+    <g id="patch_14">
+     <path d="M 338.243398 31.994206 
+L 349.043398 31.994206 
+L 349.043398 22.034206 
+L 338.243398 22.034206 
+z
+" style="fill: #4c6ee6"/>
+    </g>
+    <g id="text_28">
+     <!-- MK -->
+     <g transform="translate(356.243398 31.154206) scale(0.09 -0.09)">
+      <use xlink:href="#Unica77Cohere-Regular-4d"/>
+      <use xlink:href="#Unica77Cohere-Regular-4b" transform="translate(92.799988 0)"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pd8b9566833">
+   <rect x="57.019961" y="46.979844" width="529.475" height="321.72"/>
+  </clipPath>
+ </defs>
+</svg>

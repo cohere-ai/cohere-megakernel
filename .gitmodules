@@ -1,0 +1,6 @@
+[submodule "ThunderKittens"]
+	path = ext/ThunderKittens
+	url = https://github.com/HazyResearch/ThunderKittens.git
+[submodule "ext/nanobind"]
+	path = ext/nanobind
+	url = https://github.com/wjakob/nanobind.git
