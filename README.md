@@ -154,14 +154,12 @@ the blog post.
 
 ## Correctness
 
-Both engine is not deterministic (split-K reductions
-use atomics), so small score differences in either direction are expected.
-Release evaluation:
-
+We compared the megakernel server with the vLLM baseline on the following benchmarks.
+We report the mean score and standard deviation over 7 runs.
 | Benchmark | Megakernel | vLLM |
 | --- | ---: | ---: |
-| SciCode | 36.5% | 38.2% |
-| LiveCodeBench v6 | 70.3% | 70.3% |
+| SciCode | 38.9%±1.6%| 38.2% |
+| LiveCodeBench v6 | 70.3%±1.1% | 70.3% |
 
 Unit tests live in `src/tests/`;
 see [BUILD_AND_RUN.md — Tests](BUILD_AND_RUN.md#tests).
