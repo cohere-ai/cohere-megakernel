@@ -8,18 +8,19 @@ A research release of a single-H100 inference engine that serves
 North Mini Code with a persistent decode megakernel, behind an
 OpenAI-compatible API.
 
-Read the blog post for the full design story.
+Read the blog post (coming soon) for the full design story.
 
 > [!IMPORTANT]
+> This is an early research release, not a general-purpose inference engine.
 > Tested on: single NVIDIA H100 (`sm_90a`), CUDA 13+, CPython 3.12+, Linux,
 > batch sizes up to 8. Other configurations are not yet built or tuned.
-> This is an early research release, not a general-purpose inference engine.
+
 
 ## Highlights
 
-- **One persistent CUDA kernel executes the complete decode forward pass.**
-  No per-op launch overhead, no full-grid barriers between ops.
-- **1.58× vLLM at BS=1 decode**, holding up across batch sizes and out to
+- **Megakernel: one persistent CUDA kernel executes the complete decode forward pass.**
+  No per-op launch overhead, no full-grid barriers between ops. 
+- **1.58× vLLM at BS=1 decode**, speedup over vLLM across batch sizes and out to
   256K context, with no measurable accuracy loss.
 - OpenAI-compatible completions and chat-completions endpoints, streaming,
   tool calling.
@@ -121,6 +122,10 @@ To reproduce these numbers, see
 [BUILD_AND_RUN.md — Benchmark](BUILD_AND_RUN.md#benchmark).
 
 ## How it works
+Our megakernel decomposes the decode step into a fine-grained task graph, where each task
+corresponds to a single GEMM tile or a single split of attention. 
+The kernel itself is ordinary tiled GEMMs and ordinary paged attention, 
+stitched together using a single calling convention.
 
 A conventional engine launches one kernel per operation — RMSNorm, QKV,
 attention, MoE, O-proj — and pays full-grid synchronization at each boundary.
@@ -130,6 +135,7 @@ This engine launches **one thread block per SM and keeps it resident for the
 entire decode step**. Each block walks a host-built task list; dependencies
 are explicit counters in global memory, so work starts as soon as its
 inputs are ready rather than at a kernel boundary.
+
 
 ![MK backfilling idle SMs](figures/boundary_backfill.svg)
 
@@ -148,7 +154,7 @@ The host side splits ownership: a Python control plane admits requests and
 runs prefill; a native C++ thread owns the decode loop while the megakernel
 is running, parking between steps so Python can safely mutate batch state.
 
-The full story — the task ABI, the barrier protocol, the scheduler, and how
+The full story — the task calling convention, the barrier protocol, the scheduler, and how
 to port an existing kernel into the megakernel — is in
 the blog post.
 
@@ -188,8 +194,7 @@ Per-SM profiling is adapted from
 Several components follow [vLLM](https://github.com/vllm-project/vllm)
 closely and are credited in the source: the paged KV cache
 ([Kwon et al., SOSP 2023](https://arxiv.org/abs/2309.06180)), the seeded
-Gumbel-max sampler, RoPE arithmetic, sliding-window semantics, and the
-streaming response format.
+Gumbel-max sampler, and the streaming response format.
 
 Thanks also to the authors and maintainers of nanobind, nlhomann json, FlashAttention, PyTorch, and
 Transformers.

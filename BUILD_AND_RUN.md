@@ -319,7 +319,7 @@ vllm serve North-Mini-Code-1.0 \
 Expected ballpark on a single H100 (real checkpoint, 8K context): BS=1
 ≈292 tok/s, BS=8 ≈1,000 tok/s. See the full benchmark tables in
 [README.md — Performance](README.md#performance) and the raw 1K–256K
-context-length sweep in BLOG.
+context-length sweep in blog.
 
 Synthetic ragged sequence lengths:
 
