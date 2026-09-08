@@ -8,7 +8,7 @@ A research release of a single-H100 inference engine that serves
 North Mini Code with a persistent decode megakernel, behind an
 OpenAI-compatible API.
 
-Read the blog post (coming soon) for the full design story.
+Read the [blog post](https://cohere.com/blog/megakernels) for the full design story.
 
 > [!IMPORTANT]
 > This is an early research release, not a general-purpose inference engine.
@@ -102,7 +102,7 @@ Real prompts through the API, including prefill, continuous batching, and
 requests finishing at different times. The engines generate slightly
 different token counts, so average decode throughput is the primary
 comparison (full wall-time and token-count data is in
-the blog post).
+the [blog post](https://cohere.com/blog/megakernels)).
 
 | Benchmark | Megakernel | vLLM | Speedup |
 | --- | ---: | ---: | ---: |
@@ -154,9 +154,9 @@ The host side splits ownership: a Python control plane admits requests and
 runs prefill; a native C++ thread owns the decode loop while the megakernel
 is running, parking between steps so Python can safely mutate batch state.
 
-The full story — the task calling convention, the barrier protocol, the scheduler, and how
+The full story — the task calling convention, the full task graph, the scheduler, and how
 to port an existing kernel into the megakernel — is in
-the blog post.
+the [blog post](https://cohere.com/blog/megakernels).
 
 ## Correctness
 

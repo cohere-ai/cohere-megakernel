@@ -3,7 +3,7 @@
 Detailed build, run, benchmark, and profiling instructions for the megakernel
 serving engine. For a project overview and a minimal quick start, see
 [README.md](README.md). For the design story, see
-the blog post.
+the [blog post](https://cohere.com/blog/megakernels).
 
 ## Repository layout
 
@@ -319,7 +319,7 @@ vllm serve North-Mini-Code-1.0 \
 Expected ballpark on a single H100 (real checkpoint, 8K context): BS=1
 ≈292 tok/s, BS=8 ≈1,000 tok/s. See the full benchmark tables in
 [README.md — Performance](README.md#performance) and the raw 1K–256K
-context-length sweep in blog.
+context-length sweep in the [blog](https://cohere.com/blog/megakernels).
 
 Synthetic ragged sequence lengths:
 
