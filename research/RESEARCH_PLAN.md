@@ -559,3 +559,56 @@ Keep the claim narrow:
 **long-context, low-batch decode on a persistent megakernel**.
 
 Do not claim general GPU scheduling unless the evidence supports it.
+
+---
+
+## 17. Kickoff refinements (2026-10-25; proposals, not measured findings)
+
+The two initial designs are provisional. A pressure estimate alone is not
+automatically an independent contribution; prefer one causal finding and one
+small, justified mechanism over forcing two designs into the paper.
+
+### Feasibility before policy complexity
+
+- Upstream early loads are finite TMA prefixes, not unbounded background
+  streams. Quantify issued bytes per opcode and whether those requests overlap
+  KV reads before claiming meaningful interference. TMA bytes are not HBM bytes.
+- The BS1 dynamic MoE path issues its first weight tile before its input wait
+  even when `prefetch_stages=0`. Preserve this in baseline and distinguish it
+  from a true no-early control. See `results/prefetch-map.md`.
+- Separate full and sliding-window attention. This model's long-context
+  traffic does not scale with context identically in every layer. Identify
+  split-count and schedule-bucket transitions as competing explanations.
+- If finite-prefix traffic has negligible effect, reject the current policy
+  premise. Do not enlarge traffic just to create the desired interference.
+
+### Target scenario and paper boundary
+
+Prioritize a single H100, batch-one decode of a long code/repository prompt
+followed by hundreds of generated tokens. First test isolated decode using
+synthetic KV; final claims must disclose this setup and include real weights
+and a real-prompt correctness check. A claim about genuine long-code workloads
+also needs representative real-prefilled inputs at selected lengths.
+
+Model specificity is acceptable. Report where the effect appears and where
+it disappears, including short context and at least a small batch control.
+Explicitly scoped heuristics are acceptable after evidence gates; changing
+numerics, routing, or baseline scheduling silently is not.
+
+Keep the mechanism about ordering memory requests within the existing
+persistent megakernel. Avoid redoing compiler specialization, SM partitioning,
+or multi-GPU placement. No additional architecture or runtime is needed for
+this first study.
+
+### Bounded alternative directions to record, not implement yet
+
+1. **Dependency-window headroom:** measure how long a future weight prefix can
+   run before its activation becomes ready. If context does not predict this
+   window, an opcode/dependency-specific rule might be more appropriate than a
+   context bucket. Requires causal timing evidence; no novelty claim yet.
+2. **Cache interference versus HBM interference:** existing eviction hints can
+   affect both systems. Only after G1, a matched cache-hint control could help
+   distinguish them; do not silently bundle this change with admission.
+
+Both are small alternatives within the single-GPU workload budget, and remain
+unverified. Broader prior-art review is required before choosing a paper claim.
