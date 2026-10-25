@@ -9,3 +9,7 @@ __pycache__/
 dump/
 .pytest_cache/
 .venv/
+.DS_Store
+.transport/
+.research-cache/
+research/results/*/
