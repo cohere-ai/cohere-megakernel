@@ -82,7 +82,10 @@ def main():
                 # These are materialized final-layer outputs, not unused padded slots.
                 for name in ['lm_logits','x_raw','x_resid','q_out','o_proj_in','router_logits']:
                     captured[name] = state.tensors[name].detach().cpu().clone()
-                captured['topk_experts'] = state.tensors['topk_experts'][1:].detach().cpu().clone()
+                # Top-k slot order is not a semantic invariant. Require exact
+                # selected expert sets, matching the existing layer suite's metric.
+                captured['topk_expert_sets'] = torch.sort(
+                    state.tensors['topk_experts'][1:].detach().cpu(), dim=-1).values
                 return out
             schedule._launch_nmc_decode = launch
             with (d / f'stdout/{label}.log').open('w') as f, contextlib.redirect_stdout(f), contextlib.redirect_stderr(f):
