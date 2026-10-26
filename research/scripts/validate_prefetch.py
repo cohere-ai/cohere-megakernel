@@ -14,6 +14,8 @@ sys.path.insert(0, str(ROOT / 'src'))
 import torch
 import runner
 import decode.schedule as schedule
+import native
+import prefill.torch_prefill as torch_prefill
 
 
 def main():
@@ -30,7 +32,7 @@ def main():
                'dirty_status': subprocess.check_output(['git','status','--short'],text=True),
                'weights': 'synthetic', 'routing': 'emergent; not forced',
                'context': 4096, 'batch_size': 1, 'requested_tokens': 2,
-               'comparison': 'same seeded one-step mock fixtures; not checkpoint reference correctness',
+               'comparison': 'one shared weights/KV/page mapping/bootstrap fixture across all modes; not checkpoint correctness',
                'comparisons': []}
     def save():
         (d / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
@@ -44,6 +46,20 @@ def main():
             subprocess.run(cmd, stdout=f, stderr=subprocess.STDOUT, check=True)
     original = schedule._launch_nmc_decode
     snapshots = {}
+    native.bind(library_path=str(ROOT/'build/libmk_release.so'), debug=False)
+    torch.manual_seed(42); torch.cuda.manual_seed_all(42)
+    cfg = torch_prefill.NmcConfig.release()
+    weights = torch_prefill.make_fast_nmc_weights(cfg=cfg, device=torch.device('cuda'),
+                dtype=torch.bfloat16, upgate_chunk=64, moe_upgate_chunk=64)
+    prefill = torch_prefill.make_synthetic_kv_prefill(cfg=cfg, device=torch.device('cuda'),
+                dtype=torch.bfloat16, batch=1, fake_prompt_len=4096, max_new_tokens=2,
+                page_block=64, frac_vram_utilization=0.9, row_active=None)
+    # Reserve the decode page once. Re-creating handles can remap logical KV
+    # pages to different physical noise, even when the generator seed matches.
+    prefill.kv_cache.step_decode_positions([4096], [1])
+    fixed_page_table = prefill.kv_cache.page_table.detach().cpu().clone()
+    summary['bootstrap_token'] = prefill.next_token.detach().cpu().tolist()
+    summary['kv_pool_shape'] = list(prefill.kv_cache.k_pool.shape)
     modes = [('baseline-1','baseline'), ('baseline-2','baseline'),
              ('after-input','after-input'), ('qkv','qkv'), ('router','router'),
              ('moe-upgate','moe-upgate'), ('moe-down','moe-down')]
@@ -60,14 +76,16 @@ def main():
                 captured['topk_experts'] = state.tensors['topk_experts'][1:].detach().cpu().clone()
                 return out
             schedule._launch_nmc_decode = launch
-            torch.manual_seed(42); torch.cuda.manual_seed_all(42)
-            flags = ['--mk','--fast','--lib-path',str(ROOT/'build/libmk_release.so'),
-                     '--batch-size','1','--fake-prompt-len','4096','--max-new-tokens','2',
-                     '--num-sms','132','--frac-vram-utilization','0.9']
-            args = runner._parse_args(flags)
             with (d / f'stdout/{label}.log').open('w') as f, contextlib.redirect_stdout(f), contextlib.redirect_stderr(f):
-                report = runner._run_native_benchmark(args, runner.SamplingParams(2,0.0))
-            captured['tokens'] = torch.tensor(report.result['token_ids_by_batch'])
+                result = schedule.run_mk_decode_from_prefill(prefill=prefill, weights=weights, cfg=cfg,
+                    num_sms=132, max_new_tokens=2, temperature=0.0, gumbel_sampler=False,
+                    max_attn_splits=32, min_attn_chunk=512, fast=True, decode_timeout_sec=30.0,
+                    cpp_runtime=False, attn_drain=True, attn_drain_sms=None, moe_drain_sms=None,
+                    profile_path=None, profile_max_events=65536, rr_dependency_affinity=False,
+                    moe_combine_atomic_tma=False, ablation=False)
+            if not torch.equal(prefill.kv_cache.page_table.detach().cpu(), fixed_page_table):
+                raise RuntimeError('fixture page mapping changed')
+            captured['tokens'] = torch.tensor(result['token_ids_by_batch'])
             torch.save(captured, d / f'raw/{label}.pt')
             snapshots[label] = captured
             print('captured', label, flush=True)
@@ -92,6 +110,7 @@ def main():
         summary.update(status='failed', failure=repr(exc)); save(); raise
     finally:
         schedule._launch_nmc_decode = original
+        prefill.close()
     print(json.dumps(summary,indent=2))
 
 
