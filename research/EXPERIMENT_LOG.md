@@ -195,3 +195,169 @@ Mechanistic interpretation, clearly marked as tentative.
 One concrete next experiment or action.
 
 ---
+
+### C004_controls_build — research control build and binding regression
+
+**Date:** 2026-10-26. **Commit:** `6c5d87462ded0f29a1bc90d8e0ee79403aca36c3`, clean.
+**Hypothesis:** minimal input-wait controls can build while preserving baseline
+configuration. User authorized mock-first progress and confirmed GitHub origin.
+**Change:** optional JIT opcode mask; default zero. Selected producers wait for
+inputs before weight issues; stage counts, load counts, arithmetic, routing,
+tiling, split policy and cache hints remain unchanged. Nonzero masks enter JIT
+JSON/source hashes. Dynamic MoE's legacy first-weight issue is covered.
+**Commands:** in job281111/hn43 with `server_env.sh`, `cmake --build build -j 8`;
+`python src/tests/test_token_callback.py`; `python src/tests/test_kv_bindings.py`.
+H100/driver550.54.15/CUDA12.9.86/Python3.12.12/torch2.5.1+cu121, clocks uncontrolled.
+**Artifacts:** server `research/results/C004_controls_build/{metadata.md,commands.sh,summary.json,stdout/}`.
+**Observed:** build passed; callback15/15 and KV15/15. First mock differential
+driver failed (C005); stdout retained. No real checkpoint tests run.
+**Decision:** KEEP build/control implementation; numeric verdict handled below.
+**Next:** differential mock validation, then paired timing only if valid.
+
+### C005_mock_differential — initial strict differential check fails
+
+**Date:** 2026-10-26. **Commit:** `6c5d87462ded0f29a1bc90d8e0ee79403aca36c3`, clean.
+**Hypothesis:** resetting random seed and recreating fixtures suffices for exact
+mock expert/token comparison. **Config:** BS1/S4096, one decode step, random
+weights/KV, seed42; two baselines plus all/QKV/router/MoE-up/MoE-down controls.
+**Command:** `python research/scripts/validate_prefetch.py --id C005_mock_differential`.
+**Artifacts:** server `research/results/C005_mock_differential/` including all
+`raw/*.pt`, summary and logs; native JIT output in C004 `stdout/validation-driver.log`.
+**Observed:** strict check failed in baseline-versus-baseline too; baseline
+max logits error0.002068, raw residual0.003456; expert sets and sampled token
+differed. All floating checks met the initially defined baseline-noise threshold.
+**Interpretation:** invalid basis for attributing differences to prefetch.
+Recreated physical KV mappings and random top-k boundary ties are alternatives;
+their individual contributions were not isolated by this run.
+**Decision:** REJECT fixture-equivalence assumption; kernel-correctness INCONCLUSIVE.
+**Next:** reuse one weights/KV/bootstrap/page-mapping fixture.
+
+### C007_mock_shared_fixture — shared random fixture exposes router instability
+
+**Date:** 2026-10-26. **Commit:** `159eb4f99e4b73d003dfe9da5596269d4dc7bdb3`, clean.
+**Hypothesis/config:** C005 with one persistent fixture and decode page reserved
+once. Exact page-table stability is checked; all modes run the same one-step input.
+**Command:** `python research/scripts/validate_prefetch.py --id C007_mock_shared_fixture`.
+**Artifacts:** server `research/results/C007_mock_shared_fixture/`; failed summary,
+all snapshots and post-hoc `raw/audit.json` retained.
+**Observed:** tokens match for all modes and all floating comparisons pass;
+baseline-repeat logits max error0.000122 and residual0.000244. Expert sets still
+vary in baseline repeat, so the strict routing check fails.
+**Interpretation:** random mock routing is not a stable exact-reference fixture.
+Existing upstream layer tests already use expert-set overlap for boundary ties.
+**Decision:** INCONCLUSIVE for exact routing correctness; KEEP shared-input control.
+**Next:** separate correctness fixture with distinct router projection rows.
+
+### C009_mock_stable_router — strict top-k slot assertion is invalid
+
+**Date:** 2026-10-26. **Commit:** `e22b8bc5872fa7df31a1a68e80bdd840bb9e3a49`, clean.
+**Change/config:** correctness-only mock router weights use eight distinct
+positive and eight negative multiples of a random direction, remaining rows
+zero. The kernel routing algorithm is unchanged. Timing fixtures do not use this.
+**Command:** `python research/scripts/validate_prefetch.py --id C009_mock_stable_router --stable-router`.
+**Artifacts:** server `research/results/C009_mock_stable_router/`, failed summary
+and snapshots preserved; post-hoc audit in `raw/audit.json`.
+**Observed:** all tokens and floating checks pass. Strict slot-array equality
+fails for repeated baseline/all-off (max ID difference1). Post-hoc canonical
+sorting shows selected expert sets exactly match for every mode.
+**Interpretation:** top-k slot order is not a semantic invariant; compare sets,
+as the existing decode-layer suite does, without loosening membership checks.
+**Decision:** REJECT slot-order assertion; KEEP stable-router correctness fixture.
+**Next:** require exact expert sets and token equality.
+
+### C010_mock_expert_sets — directed mock scheduling validation passes
+
+**Date:** 2026-10-26. **Commit:** `5f23d01a5f7a706f406eef84ac3c917faca7431b`, clean.
+**Hypothesis/config:** C009, now comparing exact sorted expert sets; two baseline
+runs plus five control modes. This tests scheduling regressions, not model quality.
+**Command:** `python research/scripts/validate_prefetch.py --id C010_mock_expert_sets --stable-router`.
+**Artifacts:** server `research/results/C010_mock_expert_sets/`, all logs/tensors
+and full per-tensor tolerances/results in summary.json.
+**Observed:** 56/56 checks passed. Every output finite, tokens and selected expert
+sets exactly equal. Floating tolerance is max(1e-5,4×measured baseline-repeat
+max absolute error), defined before comparison. Baseline-repeat max errors:
+logits0.000122, raw residual0.000244, normalized residual0.000488,
+Q0.000122, attention output9.54e-7. Real checkpoint suite remains NOT RUN.
+**Decision:** KEEP controls for mock characterization; G0-R remains open.
+**Next:** paired random-weight timing with explicit input fingerprints.
+
+### C011_mock_sensitivity — early prefetch helps at both tested lengths
+
+**Date:** 2026-10-26. **Commit:** `5f23d01a5f7a706f406eef84ac3c917faca7431b`, clean.
+**Hypothesis:** delaying all early paths has a context-dependent causal effect;
+the sign is not assumed. **Config:** original random synthetic weights/KV,
+emergent routing (no stable-router fixture), BS1, S4096/S131072, 512 requested
+tokens/511 decode steps, six pairs each, seed42. AB/BA order alternates;
+context order shuffled each round. Every child performs a full same-process
+warmup. No concurrent profiling; clocks/power unchanged and inventory recorded.
+**Command:** `python3 research/scripts/cluster.py --job 281111 run -- python research/scripts/compare_prefetch.py --id C011_mock_sensitivity --contexts 4096 131072 --pairs 6 --tokens 512`.
+**Artifacts:** server `research/results/C011_mock_sensitivity/` contains complete
+summary, metadata, commands, environment and all24 warmup/timed logs.
+Only final PNG/SVG/PDF figure and explanation are published in `research/figures/`.
+
+| Pair | 4K baseline ms | 4K after-input ms | 128K baseline ms | 128K after-input ms |
+|---|---:|---:|---:|---:|
+| 1 | 3.344062 | 3.472826 | 4.461256 | 4.582282 |
+| 2 | 3.348790 | 3.477370 | 4.453782 | 4.575200 |
+| 3 | 3.350807 | 3.476839 | 4.464149 | 4.578325 |
+| 4 | 3.350698 | 3.491082 | 4.461742 | 4.587509 |
+| 5 | 3.351682 | 3.479308 | 4.455018 | 4.595957 |
+| 6 | 3.360755 | 3.480602 | 4.451530 | 4.586896 |
+| Median | 3.350752 | 3.478339 | 4.458137 | 4.584589 |
+
+**Observed:** all24 runs complete; every one of12 matched pairs has identical
+recorded pool shape, full page-table hash, bootstrap token, generator-state hash,
+weight sample and sampled-KV fingerprint. All pairs favor baseline early prefetch.
+**Derived:** median paired benefit relative to baseline: 4K3.8237%,128K2.7725%.
+Median absolute savings128.10 and123.59 µs/token, respectively. Baseline sample
+SD0.005453/0.005117 ms; after-input SD0.006187/0.007423 ms. Thus relative benefit
+falls while absolute savings remain close; denominator dilution is an alternative
+to bandwidth interference. Figure includes both measures and all repetitions.
+**Interpretation:** synthetic G1 sensitivity is observed. No crossover and no
+HBM mechanism identified; G2/G3/G4 are not satisfied by this result.
+**Decision:** KEEP characterization control; INCONCLUSIVE for H1. CONTINUE
+attribution, do not implement an adaptive policy.
+**Next:** QKV-only paired control (C012), then remaining context/opcode coverage
+and selected mechanism profiling before a policy decision.
+
+### C012_mock_qkv_attribution — QKV-only delay has a smaller noisy effect
+
+**Date:** 2026-10-26. **Commit:** `5f23d01a5f7a706f406eef84ac3c917faca7431b`, clean.
+**Hypothesis:** the global sensitivity may be concentrated in QKV; alternatively,
+other early paths contribute materially. No additive decomposition is assumed.
+**Config:** identical to C011 except only QKV is input-gated. Random synthetic
+weights/KV and natural routing retained; six AB/BA pairs per context, warmed511
+steps, same fixed-driver environment and no concurrent GPU experiment.
+**Command:** `python3 research/scripts/cluster.py --job 281111 run -- python research/scripts/compare_prefetch.py --id C012_mock_qkv_attribution --contexts 4096 131072 --mode qkv --pairs 6 --tokens 512`.
+**Artifacts:** server `research/results/C012_mock_qkv_attribution/`, all24
+warmup/timed logs, environment, commands, metadata and complete summary. No
+diagnostic dumps or exploratory noisy plot uploaded.
+
+| Pair | 4K baseline ms | 4K QKV-delayed ms | 128K baseline ms | 128K QKV-delayed ms |
+|---|---:|---:|---:|---:|
+| 1 | 3.352784 | 3.366166 | 4.492756 | 4.500947 |
+| 2 | 3.350112 | 3.376168 | 4.452663 | 4.500647 |
+| 3 | 3.354611 | 3.409772 | 4.451336 | 4.514079 |
+| 4 | 3.351482 | 3.382439 | 4.453130 | 4.502306 |
+| 5 | 3.425964 | 3.371511 | 4.454089 | 4.502229 |
+| 6 | 3.350185 | 3.372204 | 4.461786 | 4.560033 |
+| Median | 3.352133 | 3.374186 | 4.453610 | 4.502268 |
+
+**Observed:** all12 paired fixture fingerprints match. Five of six short and
+all six long pairs favor early QKV; one short pair reverses. Large deviations
+are retained, including4K pair5 and128K pairs1/6.
+**Derived:** median paired benefit0.7175% short and1.0926% long; median absolute
+savings24.04/48.66 µs. Baseline sample SD0.030311/0.016010 ms; variant
+SD0.015689/0.023412 ms. These effects are smaller/noisier than C011 global delay.
+**Interpretation:** QKV-only results do not identify a long-context harmful path.
+Global and QKV effects are not assumed additive; interaction and other opcodes
+remain unmeasured. Short-context fine-grained attribution remains uncertain.
+**Decision:** INCONCLUSIVE for H1/context dependence; KEEP per-opcode control.
+**Next:** remaining opcode/context coverage, repeat noisy QKV points with clock
+telemetry, then selected matched profiling. G2/G3/G4 remain open.
+
+**Group decision (C004–C012):** CONTINUE characterization. Mock-first workflow
+is operational and all failures retained. Synthetic sensitivity exists, but the
+current global result is similar absolute prefetch savings at both lengths, and
+QKV does not show long-context harm. No adaptive policy or paper-level bandwidth
+interference claim is justified yet; G0-R remains mandatory for final claims.

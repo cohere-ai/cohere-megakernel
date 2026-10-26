@@ -4,7 +4,7 @@ Last updated: 2026-10-26
 
 ## Status
 
-**G0-S complete; proceeding with synthetic characterization (authorized 2026-10-26)**
+**Synthetic G1 sensitivity observed; CONTINUE characterization, no adaptive policy**
 
 No research hypothesis has been confirmed.
 
@@ -25,8 +25,32 @@ No research hypothesis has been confirmed.
     sample SD 0.007390 ms; median throughput 224.166 tok/s.
 - 4K baseline Perfetto trace parsed: 32,246 positive-duration complete events.
   Same-state instrumented CUDA timing was +6.72% versus uninstrumented timing.
-- No prefetch behavior has been modified. These baselines do not establish
-  interference, crossover, correctness of real model outputs, or optimization gain.
+- These initial baselines do not establish interference, crossover, correctness
+  of real model outputs, or optimization gain.
+
+## Observed mock-control results (2026-10-26)
+
+- Optional global/per-opcode input-wait controls are implemented, defaulting to
+  upstream behavior. Build and both binding suites passed again (C004).
+- Exact random-fixture routing checks were not stable even between baselines
+  (C005/C007). Failures and snapshots are retained on the server. Stable-router
+  weights are used only in a directed correctness fixture, not in timing.
+- Shared-fixture validation C010 passed 56/56 checks across baseline and five
+  control modes: selected expert sets/token exact; finite floating outputs
+  within the predeclared baseline-repeat-noise threshold. Top-k slot order is
+  not treated as a semantic invariant. Real checkpoint tests remain unrun.
+- C011 used original random weights/KV, six AB/BA pairs each at 4K/128K,
+  with full same-process warmup and 511 measured steps. All 12 paired fixture
+  fingerprints matched. Baseline/after-input median TPOT:
+  - 4K: 3.350752 / 3.478339 ms; median paired savings 128.10 µs (3.8237%).
+  - 128K: 4.458137 / 4.584589 ms; savings 123.59 µs (2.7725%).
+- Every C011 pair favors early prefetch. Absolute savings remain similar;
+  declining relative percentage alone is not evidence of bandwidth interference.
+- C012 QKV-only control (six pairs per length) gives median paired benefit
+  0.7175% at 4K and1.0926% at 128K, with substantially larger noise than C011.
+  One 4K pair reverses sign. It does not identify a long-context harmful QKV path.
+- G1 sensitivity is observed in synthetic data. G2/G3/G4 and G0-R remain open;
+  H1 bandwidth interference is unconfirmed. No final policy is implemented.
 
 ## Established repository facts
 
@@ -55,19 +79,20 @@ Do not implement an adaptive bandwidth policy yet.
 
 ## Next actions
 
-1. Build and validate global/per-opcode after-input controls using seeded mock
-   tensors; proceed with synthetic R1/R2 characterization under G0-S.
+1. Complete context coverage and remaining per-opcode attribution, retaining
+   absolute microseconds as well as relative deltas. Investigate QKV timing
+   dispersion before making fine-grained claims; do not discard outliers.
 2. Download/access North Mini Code checkpoint later; existing decode-layer tests,
    real-prompt sanity and real-weight 8K reproduction remain required for G0-R.
-3. Compare short/long regimes with matched seeds, warmed repetitions and
-   unchanged tiling/routing/split policy; examine mechanism before any policy.
+3. Capture selected matched mechanism profiles after attribution; separate KV
+   attention duration changes from loss of latency hiding and split transitions.
 4. GitHub destination confirmed by user: `JingyiHe268/cohere-megakernel`;
    research branch pushed successfully. Keep raw diagnostics on server.
 
 Raw diagnostics and profiler output remain on the server under
-`research/results/C000_environment`, `C001_baseline_s8k`,
-`C002_baseline_profile_s4k`, and `C003_baseline_s128k`. Only final performance
-figures will be retrieved/published. See `CLUSTER.md` for transport commands.
+`research/results/<experiment-id>/`, including failures C005/C007/C009. Only
+reviewed performance figures are published in `research/figures/` (C011).
+See `EXPERIMENT_LOG.md` for all repeats and `CLUSTER.md` for transport commands.
 
 ## Open questions
 

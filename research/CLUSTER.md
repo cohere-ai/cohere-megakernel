@@ -56,11 +56,17 @@ pipeline remain unchanged. The controls retain stage counts and weight/activatio
 loads; only the input dependency wait is moved ahead of selected weight issues.
 
 ```bash
-python3 research/scripts/cluster.py --job 281111 run -- python research/scripts/validate_prefetch.py --id C005_mock_differential
-python3 research/scripts/cluster.py --job 281111 run -- python research/scripts/compare_prefetch.py --id C006_mock_sensitivity --contexts 4096 131072 --pairs 6
+# Replace IDs with fresh ones; existing result directories are never overwritten.
+python3 research/scripts/cluster.py --job 281111 run -- python research/scripts/validate_prefetch.py --id CNEW_mock_check --stable-router
+python3 research/scripts/cluster.py --job 281111 run -- python research/scripts/compare_prefetch.py --id CNEW_sensitivity --contexts 4096 131072 --pairs 6
 ```
 
 The differential check is for scheduling regressions under seeded synthetic
 inputs. It compares finite materialized outputs/routing against baseline repeat
 noise; it is not a trained-model quality/reference test. Paired timing alternates
 AB/BA and shuffles context order per round. No profiler runs concurrently.
+The stable-router fixture avoids top-k boundary ties only for correctness;
+timing keeps upstream random synthetic weights. Exact expert sets, not slot
+order, are compared. Shared fixture weights/KV/page mappings are held fixed.
+Timing pairs record and check pool shape, page-table hash, bootstrap, RNG state,
+weight sample and sampled KV hash; the KV sample is not a full-content digest.

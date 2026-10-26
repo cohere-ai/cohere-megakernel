@@ -590,6 +590,9 @@ small, justified mechanism over forcing two designs into the paper.
   split-count and schedule-bucket transitions as competing explanations.
 - If finite-prefix traffic has negligible effect, reject the current policy
   premise. Do not enlarge traffic just to create the desired interference.
+- Compare absolute time savings as well as normalized percentages. Constant
+  savings divided by increasing context-dependent TPOT can mimic declining
+  prefetch benefit without demonstrating growing interference.
 
 ### Target scenario and paper boundary
 
