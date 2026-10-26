@@ -309,6 +309,16 @@ constexpr int NMC_MOE_SCHED_RING = 2;
 #define NMC_MOE_L2_HINT 1
 #endif
 
+// Research-only JIT switch. Zero preserves the upstream producer pipeline.
+// Bits use NmcOpcode values; only the input-wait position changes.
+#ifndef NMC_RESEARCH_AFTER_INPUT_MASK
+#define NMC_RESEARCH_AFTER_INPUT_MASK 0
+#endif
+
+__device__ __forceinline__ bool research_after_input(NmcOpcode opcode) {
+    return (NMC_RESEARCH_AFTER_INPUT_MASK & (1u << static_cast<int>(opcode))) != 0;
+}
+
 // Fine-grained MoE down -> combine dependency. When defined, MoE down tasks
 // arrive on the per-(layer, expert, down-row-block) bar_moe_down slot.
 // #define NMC_MOE_FINE_GRAINED_DOWN_COMBINE
@@ -991,6 +1001,16 @@ __device__ void gemm_n8_op_scheduled(
                 }
             };
 
+            const bool defer_weights = research_after_input(tile.inst.opcode());
+            if (defer_weights) {
+                if constexpr (!Scheduler::WAIT_INPUT_ONCE) {
+                    Policy::wait_input_bars(g, tile.inst, ops);
+                } else if constexpr (PREFETCH_STAGES > 0) {
+                    if (tile_idx == 0) Policy::wait_input_bars(g, tile.inst, ops);
+                }
+                __syncwarp();
+            }
+
             if constexpr (PREFETCH_STAGES > 0) {
                 // Arm the configured prefix and issue W only. data_bar remains
                 // pending because each stage expects both W and X bytes.
@@ -1010,12 +1030,14 @@ __device__ void gemm_n8_op_scheduled(
                 }
 
                 __syncwarp();
-                if constexpr (Scheduler::WAIT_INPUT_ONCE) {
-                    // Merged static tiles share one input dependency.
-                    if (tile_idx == 0) Policy::wait_input_bars(g, tile.inst, ops);
-                } else {
-                    // Dynamic MoE records can carry different per-task barriers.
-                    Policy::wait_input_bars(g, tile.inst, ops);
+                if (!defer_weights) {
+                    if constexpr (Scheduler::WAIT_INPUT_ONCE) {
+                        // Merged static tiles share one input dependency.
+                        if (tile_idx == 0) Policy::wait_input_bars(g, tile.inst, ops);
+                    } else {
+                        // Dynamic MoE records can carry different per-task barriers.
+                        Policy::wait_input_bars(g, tile.inst, ops);
+                    }
                 }
                 __syncwarp();
 
@@ -1057,7 +1079,7 @@ __device__ void gemm_n8_op_scheduled(
                         data_bar[stage], sizeof(w_tile) + sizeof(x_tile));
                     load_weight(stage, k_abs);
                     if constexpr (!Scheduler::WAIT_INPUT_ONCE) {
-                        if (ki == 0) Policy::wait_input_bars(g, tile.inst, ops);
+                        if (ki == 0 && !defer_weights) Policy::wait_input_bars(g, tile.inst, ops);
                     }
                     load_activation(stage, k_abs);
                 }
@@ -1339,6 +1361,12 @@ __device__ void qkv_n8_op(const NmcInstruction& inst, const NmcGlobals<Cfg>& g, 
         constexpr int initial_stage_limit =
             PREFETCH_STAGES > 0 ? PREFETCH_STAGES : STAGES;
         const int initial_stages = min(initial_stage_limit, k_tiles);
+        constexpr bool defer_weights =
+            (NMC_RESEARCH_AFTER_INPUT_MASK & (1u << static_cast<int>(NmcOpcode::QKV_PROJ))) != 0;
+        if constexpr (PREFETCH_STAGES > 0 && defer_weights) {
+            wait_input_bar();
+            __syncwarp();
+        }
         if (lane == 0) {
             if constexpr (PREFETCH_STAGES > 0) {
                 block_profiler_begin<Cfg>(ops.profiler);
@@ -1375,7 +1403,7 @@ __device__ void qkv_n8_op(const NmcInstruction& inst, const NmcGlobals<Cfg>& g, 
         __syncwarp();
 
         if constexpr (PREFETCH_STAGES > 0) {
-            wait_input_bar();
+            if constexpr (!defer_weights) wait_input_bar();
             __syncwarp();
             if (lane == 0) {
                 // Finish the armed stages with X. data_bar releases each consumer

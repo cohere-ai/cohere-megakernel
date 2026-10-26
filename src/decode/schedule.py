@@ -679,12 +679,28 @@ def jit_compile(
     descriptor whose ``jit_handle`` names it -- so there is no destroy to
     forget, and no window where a descriptor points at an unloaded .so.
     """
-    return library.launch.JitKernel.compile(
+    # Research mode is fixed for each new decode registry. It is included in
+    # generated source/config hashes; default config remains byte-for-byte intact.
+    mode = os.environ.get("NMC_RESEARCH_PREFETCH", "baseline")
+    masks = {"baseline": 0, "after-input": (1 << 2) | (1 << 9) | (1 << 13) | (1 << 14),
+             "qkv": 1 << 2, "router": 1 << 9,
+             "moe-upgate": 1 << 13, "moe-down": 1 << 14}
+    if mode not in masks:
+        raise ValueError(f"invalid NMC_RESEARCH_PREFETCH={mode!r}; expected {tuple(masks)}")
+    config_json = tiling.as_json()
+    if masks[mode]:
+        payload = json.loads(config_json)
+        payload["research_after_input_mask"] = masks[mode]
+        config_json = json.dumps(payload, sort_keys=True, separators=(",", ":"))
+    logger.info("research prefetch mode=%s mask=%d", mode, masks[mode])
+    handle = library.launch.JitKernel.compile(
         bs=int(batch),
         enable_profiler=bool(enable_profiler),
         repo_root=_REPO_ROOT,
-        config_json=tiling.as_json(),
+        config_json=config_json,
     )
+    logger.info("research JIT artifact=%s", handle.artifact_path)
+    return handle
 
 
 def _zeros() -> list[int]:
