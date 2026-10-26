@@ -262,6 +262,14 @@ static std::string make_nmc_jit_source(int bs, bool enable_profiler, const char*
            << (enable_profiler ? "_prof" : "_noprof");
     const std::string cfg = cfg_os.str();
     std::ostringstream os;
+    if (j.contains("research_after_input_mask")) {
+        const int mask = json_int(j, "research_after_input_mask");
+        constexpr int allowed = (1 << 2) | (1 << 9) | (1 << 13) | (1 << 14);
+        if (mask < 0 || (mask & ~allowed) != 0) {
+            throw std::runtime_error("unsupported research_after_input_mask");
+        }
+        if (mask != 0) os << "#define NMC_RESEARCH_AFTER_INPUT_MASK " << mask << "\n";
+    }
     os << "#include \"decode/launch.cuh\"\n";
     os << "namespace mk {\n";
     os << "struct " << cfg << " {\n";

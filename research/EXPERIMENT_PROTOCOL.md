@@ -103,6 +103,12 @@ Never report only the best run.
 
 ### Step A — Correctness
 
+Authorized mock-first path (2026-10-26): before checkpoint download, run the
+existing binding suites and differential synthetic tensor/output checks, with
+baseline-versus-baseline repeats to estimate numerical nondeterminism. Disclose
+that this is not a substitute for the checkpoint decode-layer reference suite.
+Real-prompt/model correctness remains a separate required gate for final claims.
+
 For each new research switch:
 
 - build;

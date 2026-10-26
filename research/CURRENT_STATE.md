@@ -4,7 +4,7 @@ Last updated: 2026-10-26
 
 ## Status
 
-**Phase 0 — partial reproduction; CONTINUE after checkpoint access**
+**G0-S complete; proceeding with synthetic characterization (authorized 2026-10-26)**
 
 No research hypothesis has been confirmed.
 
@@ -55,13 +55,14 @@ Do not implement an adaptive bandwidth policy yet.
 
 ## Next actions
 
-1. Obtain North Mini Code checkpoint path; run existing decode-layer tests,
-   real-prompt sanity and real-weight 8K reproduction to complete G0.
-2. Then add true global/per-opcode after-input controls with baseline preserved.
+1. Build and validate global/per-opcode after-input controls using seeded mock
+   tensors; proceed with synthetic R1/R2 characterization under G0-S.
+2. Download/access North Mini Code checkpoint later; existing decode-layer tests,
+   real-prompt sanity and real-weight 8K reproduction remain required for G0-R.
 3. Compare short/long regimes with matched seeds, warmed repetitions and
    unchanged tiling/routing/split policy; examine mechanism before any policy.
-4. Confirm the GitHub upload destination. Local/server commit-based transport
-   works; remote GitHub push awaits destination confirmation after auto-review.
+4. GitHub destination confirmed by user: `JingyiHe268/cohere-megakernel`;
+   research branch pushed successfully. Keep raw diagnostics on server.
 
 Raw diagnostics and profiler output remain on the server under
 `research/results/C000_environment`, `C001_baseline_s8k`,

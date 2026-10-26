@@ -43,3 +43,24 @@ toolkit label. CUDA 12.9 PTX/new driver APIs can still fail on this driver; a
 Sources checked 2026-10-25:
 - https://docs.nvidia.com/deploy/cuda-compatibility/forward-compatibility.html
 - https://docs.nvidia.com/cuda/archive/13.0.1/cuda-toolkit-release-notes/index.html
+
+## Mock-first characterization controls (2026-10-26)
+
+User authorized mock-data progress before checkpoint download. G0-S is satisfied;
+G0-R remains open. `NMC_RESEARCH_PREFETCH` is read at JIT compilation and accepts
+`baseline` (default), `after-input` (all early paths), `qkv`, `router`,
+`moe-upgate`, or `moe-down` (only that opcode is delayed).
+Set it before creating a new decode registry; do not change it within a live
+registry. Nonzero masks enter the JSON/source/cache key. Baseline JSON and
+pipeline remain unchanged. The controls retain stage counts and weight/activation
+loads; only the input dependency wait is moved ahead of selected weight issues.
+
+```bash
+python3 research/scripts/cluster.py --job 281111 run -- python research/scripts/validate_prefetch.py --id C005_mock_differential
+python3 research/scripts/cluster.py --job 281111 run -- python research/scripts/compare_prefetch.py --id C006_mock_sensitivity --contexts 4096 131072 --pairs 6
+```
+
+The differential check is for scheduling regressions under seeded synthetic
+inputs. It compares finite materialized outputs/routing against baseline repeat
+noise; it is not a trained-model quality/reference test. Paired timing alternates
+AB/BA and shuffles context order per round. No profiler runs concurrently.

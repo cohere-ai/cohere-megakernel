@@ -164,13 +164,22 @@ If E1 or E2 fails, do not continue to the proposed design.
 
 ### Gate G0 — Reproduction
 
+Update authorized 2026-10-26: mock data may be used first. Split this gate into
+G0-S (synthetic environment) and G0-R (real checkpoint). C000–C003 satisfy G0-S:
+build/JIT, existing binding tests, repeated BS1 decode and valid trace. Synthetic
+R1/R2 characterization may proceed after differential mock-output validation.
+G0-R remains mandatory before final model-correctness/performance claims and
+before treating synthetic policy evidence as validated for the real workload.
+Unavailable checkpoint is not a reason to stop synthetic characterization.
+
 Before changing prefetch behavior:
 
 - reproduce upstream BS=1 decode performance within a reasonable range;
 - pass relevant tests;
 - obtain a valid profiler trace.
 
-If G0 fails, stop and debug the environment.
+If the applicable gate fails, stop and debug the environment. Do not implement
+the final adaptive policy from synthetic evidence alone.
 
 ### Gate G1 — Causal prefetch sensitivity
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Repeat unmodified synthetic decode with same-process warmups per repeat."""
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -14,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def worker(a):
+    os.environ['NMC_RESEARCH_PREFETCH'] = a.mode
     sys.path.insert(0, str(ROOT / 'src'))
     import torch
     import runner
@@ -36,6 +38,8 @@ def worker(a):
                   'num_context_buckets', 'num_unique_schedules', 'total_inst',
                   'max_inst_per_sm']}
         record['phase'] = phase
+        record['token_sha256'] = hashlib.sha256(json.dumps(r['token_ids_by_batch']).encode()).hexdigest()
+        record['prefetch_mode'] = a.mode
         results.append(record)
         print('RESEARCH_' + phase.upper() + '=' + json.dumps(record), flush=True)
     return results
@@ -48,6 +52,7 @@ def main():
     p.add_argument('--tokens', type=int, default=512)
     p.add_argument('--repeats', type=int, default=5)
     p.add_argument('--seed', type=int, default=42)
+    p.add_argument('--mode', default='baseline', choices=['baseline', 'after-input', 'qkv', 'router', 'moe-upgate', 'moe-down'])
     p.add_argument('--worker', action='store_true', help=argparse.SUPPRESS)
     a = p.parse_args()
     if a.context < 1 or a.tokens < 2 or a.repeats < 5:
@@ -64,7 +69,7 @@ def main():
     commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
     status = subprocess.check_output(['git', 'status', '--short'], cwd=ROOT, text=True)
     metadata = {'experiment_id': a.id, 'git_commit': commit, 'dirty_status': status,
-                'variant': 'baseline', 'weights': 'synthetic',
+                'variant': a.mode, 'weights': 'synthetic',
                 'routing': 'synthetic weights, emergent routing; no forced uniform routing',
                 'batch_size': 1, 'context_length': a.context, 'output_tokens': a.tokens,
                 'executed_decode_steps_expected': a.tokens - 1,
@@ -76,7 +81,7 @@ def main():
         summary.write_text(json.dumps(metadata, indent=2) + '\n')
     save()
     (d / 'metadata.md').write_text('# ' + a.id + '\n\nHypothesis: upstream synthetic decode executes repeatedly on the fixed driver.\n'
-        'No prefetch behavior change; no bandwidth-interference claim.\n\n'
+        'Prefetch mode: ' + a.mode + '; no bandwidth-interference claim from a single variant.\n\n'
         + 'Commit: ' + commit + '\nDirty status:\n```\n' + status + '```\n'
         'Configuration and all repetitions: summary.json. Exact commands: commands.sh.\n')
     with (d / 'stdout/environment.log').open('w') as log:
@@ -89,7 +94,7 @@ def main():
         for i in range(a.repeats):
             cmd = [sys.executable, str(Path(__file__).resolve()), '--id', a.id,
                    '--context', str(a.context), '--tokens', str(a.tokens),
-                   '--repeats', str(a.repeats), '--seed', str(a.seed), '--worker']
+                   '--repeats', str(a.repeats), '--seed', str(a.seed), '--mode', a.mode, '--worker']
             commands.append(shlex.join(cmd))
             (d / 'commands.sh').write_text('#!/usr/bin/env bash\n' + '\n'.join(commands) + '\n')
             logpath = d / f'stdout/repeat-{i + 1:02d}.log'
