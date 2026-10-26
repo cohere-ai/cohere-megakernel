@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+import logging
 import os
 from pathlib import Path
 import shlex
@@ -19,6 +20,34 @@ def worker(a):
     sys.path.insert(0, str(ROOT / 'src'))
     import torch
     import runner
+    import prefill.torch_prefill as fixture
+    logging.basicConfig(level=logging.INFO)
+    fingerprints = {}
+    original_weights = fixture.make_fast_nmc_weights
+    original_prefill = fixture.make_synthetic_kv_prefill
+    def digest(t):
+        return hashlib.sha256(t.detach().contiguous().cpu().view(torch.uint8).numpy().tobytes()).hexdigest()
+    def weights_with_fingerprint(**kwargs):
+        weights = original_weights(**kwargs)
+        fingerprints['weight_sample_sha256'] = digest(weights['W_qkv'].reshape(-1)[:4096])
+        return weights
+    def prefill_with_fingerprint(**kwargs):
+        prefill = original_prefill(**kwargs)
+        fingerprints['pool_shape'] = list(prefill.kv_cache.k_pool.shape)
+        fingerprints['page_table_sha256'] = digest(prefill.kv_cache.page_table)
+        fingerprints['bootstrap'] = prefill.next_token.detach().cpu().tolist()
+        fingerprints['generator_state_sha256'] = digest(torch.cuda.get_rng_state())
+        # Sample resident physical pages. Shape, generator state and full page
+        # mapping are also recorded; do not label this sample as a full KV hash.
+        table = prefill.kv_cache.page_table.reshape(-1)
+        valid = table[table >= 0].long()
+        if valid.numel():
+            ids = valid[torch.linspace(0,valid.numel()-1,steps=min(32,valid.numel()),device=valid.device).long()]
+            fingerprints['kv_sample_sha256'] = digest(torch.stack([
+                prefill.kv_cache.k_pool[ids,0], prefill.kv_cache.v_pool[ids,0]]))
+        return prefill
+    fixture.make_fast_nmc_weights = weights_with_fingerprint
+    fixture.make_synthetic_kv_prefill = prefill_with_fingerprint
     flags = ['--mk', '--fast', '--lib-path', str(ROOT / 'build/libmk_release.so'),
              '--batch-size', '1', '--max-new-tokens', str(a.tokens),
              '--fake-prompt-len', str(a.context), '--num-sms', '132',
@@ -40,6 +69,7 @@ def worker(a):
         record['phase'] = phase
         record['token_sha256'] = hashlib.sha256(json.dumps(r['token_ids_by_batch']).encode()).hexdigest()
         record['prefetch_mode'] = a.mode
+        record['fixture_fingerprint'] = dict(fingerprints)
         results.append(record)
         print('RESEARCH_' + phase.upper() + '=' + json.dumps(record), flush=True)
     return results

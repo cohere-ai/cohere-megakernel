@@ -66,6 +66,10 @@ def main():
             b=[x['tpot_ms'] for x in rows if x['mode']=='baseline']
             v=[x['tpot_ms'] for x in rows if x['mode']==a.mode]
             deltas=[(v0-b0)/b0*100 for b0,v0 in zip(b,v)]
+            for pair in range(1,a.pairs+1):
+                matched=[x['fixture_fingerprint'] for x in rows if x['pair']==pair]
+                if len(matched)!=2 or matched[0]!=matched[1]:
+                    raise RuntimeError(f'fixture mismatch at context={context}, pair={pair}; comparison invalid')
             stats.append(dict(context=context,baseline_tpot_median=statistics.median(b),variant_tpot_median=statistics.median(v),
                               baseline_stdev=statistics.stdev(b),variant_stdev=statistics.stdev(v),
                               paired_prefetch_benefit_pct=deltas,median_paired_benefit_pct=statistics.median(deltas),

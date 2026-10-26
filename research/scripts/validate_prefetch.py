@@ -21,6 +21,8 @@ import prefill.torch_prefill as torch_prefill
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--id', required=True)
+    p.add_argument('--stable-router', action='store_true',
+                   help='use distinct signed router rows to remove random-weight top-k boundary ties; correctness fixture only')
     a = p.parse_args()
     if Path(a.id).name != a.id or a.id in ('.', '..'):
         p.error('invalid experiment id')
@@ -34,6 +36,7 @@ def main():
                'context': 4096, 'batch_size': 1, 'requested_tokens': 2,
                'comparison': 'one shared weights/KV/page mapping/bootstrap fixture across all modes; not checkpoint correctness',
                'comparisons': []}
+    summary['stable_router_fixture'] = a.stable_router
     def save():
         (d / 'summary.json').write_text(json.dumps(summary, indent=2) + '\n')
     save()
@@ -51,6 +54,12 @@ def main():
     cfg = torch_prefill.NmcConfig.release()
     weights = torch_prefill.make_fast_nmc_weights(cfg=cfg, device=torch.device('cuda'),
                 dtype=torch.bfloat16, upgate_chunk=64, moe_upgate_chunk=64)
+    if a.stable_router:
+        direction = torch.randn((cfg.num_hidden_layers,1,cfg.hidden_size),device='cuda') * 0.0002
+        coefficients = torch.zeros((1,cfg.num_experts,1),device='cuda')
+        coefficients[0,:8,0] = torch.arange(8,0,-1,device='cuda')
+        coefficients[0,8:16,0] = -torch.arange(8,0,-1,device='cuda')
+        weights['W_router'].copy_(direction*coefficients)
     prefill = torch_prefill.make_synthetic_kv_prefill(cfg=cfg, device=torch.device('cuda'),
                 dtype=torch.bfloat16, batch=1, fake_prompt_len=4096, max_new_tokens=2,
                 page_block=64, frac_vram_utilization=0.9, row_active=None)
